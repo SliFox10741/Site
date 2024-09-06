@@ -8,14 +8,21 @@
 </head>
 <body>
     <header>
-        <div class="logo">BOOKLAND_TRAVEL</div>
+        <div class="logo"><a href="main.html">BOOKLAND_TRAVEL</a></div>
         <nav class="main-menu">
             <ul>
+                <div class="dropdown">
                 <li><a href="#">Каталог</a></li>
-                <li><a href="#">Доставка</a></li>
-                <li><a href="#">Отзывы</a></li>
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Контакты</a></li>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+                <li><a href="delivery.html">Доставка</a></li>
+                <li><a href="#reviews" class="menu-link">Отзывы</a></li>
+                <li><a href="#about" class="menu-link">О нас</a></li>
+                <li><a href="#footer" class="menu-link">Контакты</a></li>
             </ul>
         </nav>
         
@@ -25,6 +32,7 @@
             <a href="#"><img src="../images/vk_icon_135042.png" alt="VK"></a>
             <a href="#"><img src="../images/png-clipart-telegram-computer-icons-logo-android-angle-triangle-thumbnail.png" alt="Telegram"></a>
         </div>
+        
     </header>
     <div class="search-popup" id="searchPopup">
         <input type="text" placeholder="Что вы хотите найти?">
@@ -41,27 +49,27 @@
         <h2>Наши преимущества</h2>
         <div class="feature-grid">
             <div class="feature-item">
-                <img src="unique-design.png" alt="Уникальный дизайн">
+                <img src="../images/lorem.avif" alt="Уникальный дизайн">
                 <h3>Уникальный дизайн</h3>
                 <p>Уникальные обложки и внутренняя структура дневников.</p>
             </div>
             <div class="feature-item">
-                <img src="quality.png" alt="Качество">
+                <img src="../images/lorem.avif" alt="Качество">
                 <h3>Качество</h3>
                 <p>Печать на плотной бумаге с покрытием Soft-touch.</p>
             </div>
             <div class="feature-item">
-                <img src="fast-shipping.png" alt="Быстрая отправка">
+                <img src="../images/lorem.avif" alt="Быстрая отправка">
                 <h3>Быстрая отправка</h3>
                 <p>Каждый заказ отправляется в течение 3-5 рабочих дней.</p>
             </div>
             <div class="feature-item">
-                <img src="affordable-price.png" alt="Доступная цена">
+                <img src="../images/lorem.avif" alt="Доступная цена">
                 <h3>Доступная цена</h3>
                 <p>Высококачественная продукция по приятной цене.</p>
             </div>
             <div class="feature-item">
-                <img src="customer-satisfaction.png" alt="Более 3000 довольных клиентов">
+                <img src="../images/lorem.avif" alt="Более 3000 довольных клиентов">
                 <h3>Более 3000 довольных клиентов</h3>
                 <p>Клиенты оставляют много отзывов о нашей продукции.</p>
             </div>
@@ -86,20 +94,22 @@
         </div>
     </section>
     <!-- Раздел "Об авторе" -->
-<section class="about-author">
+<section class="about-author" id="about">
     <h3>Об авторе</h3>
     <div class="author-content">
         <div class="author-photo">
-            <img src="path-to-author-photo.jpg" alt="Фото автора">
+            <img src="../images/lorem.avif" alt="Фото автора">
         </div>
         <div class="author-bio">
-            <p>Здесь будет краткое описание автора, его биография и важная информация, связанная с его деятельностью.</p>
+            <p>
+                Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты. Назад семантика оксмокс прямо составитель о взобравшись себя коварный свой переписали от всех, она, предложения домах, маленькая подпоясал деревни за даль грамматики даже правилами злых путь. Lorem проектах последний раз ipsum? Это семантика, безопасную возвращайся сбить пунктуация силуэт встретил оксмокс. Алфавит.
+            </p>
         </div>
     </div>
 </section>
 
 <!-- Раздел "Отзывы" -->
-<section class="reviews">
+<section class="reviews" id="reviews">
     <h3>Отзывы</h3>
     <div class="reviews-grid">
         <!-- Пример одного отзыва -->
@@ -110,9 +120,37 @@
         <!-- Добавьте еще отзывы здесь -->
     </div>
 </section>
-    <footer>
-        <p>&copy; 2024 Bookland Travel. Все права защищены.</p>
-    </footer>
+<footer>
+    <div class="footer-container" id="footer">
+        <div class="footer-logo">
+            <h2>BOOKLAND_TRAVEL</h2>
+            <p>booklandtravel@yandex.ru</p>
+            <p>WhatsApp для срочной связи</p>
+        </div>
+        <div class="footer-info">
+            <h3>Информация</h3>
+            <ul>
+                <li><a href="#">Каталог товаров</a></li>
+                <li><a href="#">Доставка и оплата</a></li>
+                <li><a href="#">Политика конфиденциальности</a></li>
+            </ul>
+        </div>
+        <div class="footer-hours">
+            <h3>Режим работы</h3>
+            <p>Пн-пт: 10:00-22:00</p>
+            <p>Сб-вс: выходной</p>
+        </div>
+        <div class="footer-social">
+            <h3>Соцсети</h3>
+            <ul>
+                <li><a href="#">TikTok</a></li>
+                <li><a href="#">ВКонтакте</a></li>
+                <li><a href="#">Telegram</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
 
     <script src="../scripts/script.js"></script>
 
