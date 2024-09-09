@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookland Travel</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+    <script src="../scripts/catalog.js"></script>
+    <header>
+        <div class="logo">BOOKLAND_TRAVEL</div>
+        <nav class="main-menu">
+            <ul>
+                <li><a href="#">Каталог</a></li>
+                <li><a href="#">Доставка</a></li>
+                <li><a href="#">Отзывы</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <div class="social-icons">
+            <a href="#" button id="searchBtn"></button><img src="../images/search.png" alt="Search"></a>
+            <a href="#"><img src="../images/tik-tok.png" alt="TikTok"></a>
+            <a href="#"><img src="../images/vk_icon_135042.png" alt="VK"></a>
+            <a href="#"><img
+                    src="../images/png-clipart-telegram-computer-icons-logo-android-angle-triangle-thumbnail.png"
+                    alt="Telegram"></a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h2>Ежедневники для хобби</h2>
+        <p>Оставьте свои мысли о книгах и фильмах в ярком формате, чтобы вернуться к приятным эмоциям вновь.</p>
+        <button class="cta-button">Каталог</button>
+    </section>
+    
+    <div class="search-popup" id="searchPopup">
+        <input type="text" placeholder="Что вы хотите найти?">
+        <button>Найти</button>
+    </div>
+
+    <section class="catalog">
+        <div class="catalog-grid" id="product-list"> <!-- Добавлен элемент с id product-list -->
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    loadProducts(10, 0, '');
+                });
+            </script>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Bookland Travel. Все права защищены.</p>
+    </footer>
+
+</body>
+
+</html>
