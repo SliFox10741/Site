@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сокровищница дракона - Каталог</title>
+    <link rel="stylesheet" href="../styles/catalog.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html">Сокровищница дракона</a></div>
+        <nav class="main-menu">
+            <ul>
+                <li><a href="#">Каталог</a></li>
+                <li><a href="delivery.html">Доставка</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="social-icons">
+            <a href="#"><img src="images/search.png" alt="Search"></a>
+            <a href="#"><img src="images/tik-tok.png" alt="TikTok"></a>
+            <a href="#"><img src="images/vk.png" alt="VK"></a>
+            <a href="#"><img src="images/telegram.png" alt="Telegram"></a>
+        </div>
+    </header>
+
+    <main>
+        <section class="catalog-section">
+            <aside class="filters">
+                <h3>Фильтры</h3>
+                <form>
+                    <div class="filter-group">
+                        <h4>Категории</h4>
+                        <label><input type="checkbox"> Держатели и разделители</label><br>
+                        <label><input type="checkbox"> Открытки</label><br>
+                        <label><input type="checkbox"> Закладки</label><br>
+                        <label><input type="checkbox"> Фигурки</label><br>
+                        <label><input type="checkbox"> Подарочные наборы</label><br>
+                        <label><input type="checkbox"> Вязаные изделия</label><br>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Теги</h4>
+                        <label><input type="checkbox"> Игра престолов</label><br>
+                        <label><input type="checkbox"> Гарри Поттер</label><br>
+                        <label><input type="checkbox"> Властелин колец</label><br>
+                        <label><input type="checkbox"> Драконы</label><br>
+                    </div>
+
+                    <button type="submit" class="filter-button">Применить фильтры</button>
+                </form>
+            </aside>
+
+            <section class="catalog-items">
+                <h2>Каталог товаров</h2>
+
+                <div class="monthly-offers">
+                    <h3>Товары месяца со скидкой</h3>
+                    <div class="product-grid">
+                        <div class="product-item">
+                            <img src="images/product1.jpg" alt="Product 1">
+                            <h4>Фигурка дракона</h4>
+                            <p class="price">1200 руб <span class="discount">1000 руб</span></p>
+                        </div>
+                        <div class="product-item">
+                            <img src="images/product2.jpg" alt="Product 2">
+                            <h4>Закладка с драконами</h4>
+                            <p class="price">500 руб <span class="discount">400 руб</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Все товары</h3>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <img src="images/product3.jpg" alt="Product 3">
+                        <h4>Открытка с драконами</h4>
+                        <p class="price">300 руб</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/product4.jpg" alt="Product 4">
+                        <h4>Вязаная игрушка</h4>
+                        <p class="price">1500 руб</p>
+                    </div>
+                    <!-- Add more products as needed -->
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h2>Сокровищница дракона</h2>
+            <p>Контакты: sokrovischnica@dragon.com</p>
+            <p>© 2024 Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/catalog.js"></script>
+</body>
+</html>
