@@ -2,12 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
     font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+}
+body {
+    background: linear-gradient(135deg, #fddde6, #fae2e7, #f3effc);
+    color: #4d4d4d;
     padding: 20px;
 }
 
@@ -16,25 +15,31 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #ffe1b2;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+
 }
 
 .logo a {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
     text-decoration: none;
+    color: #e25d67;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 nav a {
     text-decoration: none;
-    color: #333;
+    color: #4d4d4d;
     font-weight: bold;
 }
 
@@ -51,61 +56,95 @@ nav a {
 }
 
 .filters {
-    width: 250px;
-    background-color: #c7eaff;
+    background: rgba(255, 255, 255, 0.8);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 25%;
 }
 
 .filters h3 {
     font-size: 24px;
-    margin-bottom: 15px;
+    color: #e25d67;
 }
 
 .filter-group {
     margin-bottom: 20px;
 }
 
-.filter-button {
-    padding: 10px;
-    background-color: #e25d67;
-    color: white;
-    border: none;
-    border-radius: 5px;
+.filter-group h4 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #4d4d4d;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 10px;
     cursor: pointer;
 }
 
-.catalog-items {
-    flex-grow: 1;
+.filter-button {
+    padding: 10px 20px;
+    background: #e25d67;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
 }
 
-.catalog-items h2, h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
+.catalog-items {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.catalog-items h2, .catalog-items h3 {
+    color: #e25d67;
+    margin-bottom: 20px;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
 
 .product-item {
-    background-color: #e5ffd5;
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 .product-item img {
     width: 100%;
     height: auto;
-    border-radius: 5px;
+    margin-bottom: 15px;
+    border-radius: 10px;
 }
 
 .product-item h4 {
-    margin: 10px 0;
     font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-item .price {
+    font-size: 16px;
+    color: #4d4d4d;
+}
+
+.product-item .discount {
+    color: #e25d67;
+    font-weight: bold;
+    text-decoration: line-through;
+    margin-left: 10px;
 }
 
 .price {
@@ -119,18 +158,23 @@ nav a {
     margin-left: 10px;
 }
 
-footer {
-    background-color: #4a4a4a;
-    color: white;
+.footer-content {
     text-align: center;
+    margin-top: 50px;
     padding: 20px;
-    margin-top: 40px;
+    background-color: #3a2f29;
+    color: #e6ded5;
 }
 
 .footer-content h2 {
+    font-family: 'Pacifico', cursive;
     font-size: 24px;
-    margin-bottom: 10px;
 }
+
+.footer-content p {
+    margin: 5px 0;
+}
+
 
 /* Основные стили для pop-up */
 .popup {
