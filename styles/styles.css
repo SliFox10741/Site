@@ -1,463 +1,295 @@
-* {
+/* Общие стили */
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    background-color: #f9f4ec; /* Светлый фон */
 }
 
-body {
-    background: linear-gradient(135deg, #fddde6, #fae2e7, #f3effc); /* Colors inspired by the dragon images */
-    color: #4d4d4d;
-    padding: 20px;
+a {
+    text-decoration: none;
+    color: #333;
 }
 
 header {
+    background-color: #2c2c2c; /* Темный фон для шапки */
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8); /* Slight transparency for a soft look */
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.logo a{
-    text-decoration: none;
-}
-
-.logo {
+.logo a {
     font-size: 24px;
     font-weight: bold;
+    color: #fff; /* Белый текст */
 }
 
-.logo h1 {
-    font-family: 'Pacifico', cursive; /* A soft, whimsical font */
-    color: #e25d67;
-}
-
-nav ul {
+.main-menu ul {
     list-style: none;
     display: flex;
     gap: 20px;
 }
 
-nav a, #searchBtn {
-    text-decoration: none;
-    color: #4d4d4d;
-    font-weight: bold;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.search-popup {
-    display: none;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.search-popup input {
-    width: 80%;
-    padding: 10px;
-    border: 2px solid #e25d67;
-    border-radius: 10px;
-    margin-right: 10px;
-}
-
-.search-popup button {
-    padding: 10px 20px;
-    background: #e25d67;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-
-.social-icons a img {
-    width: 24px;
-    height: 24px;
-    margin-left: 10px;
-}
-
-.hero {
-    text-align: center;
-    margin: 50px 0;
-    color: #4d4d4d;
-}
-
-.hero h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #e25d67;
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin: 0 0 20px;
-}
-
-.hero p {
-    font-size: 20px;
-    margin: 0 0 30px;
-}
-
-.cta-button {
-    padding: 15px 30px;
-    background: #e25d67;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.features {
-    margin-top: 50px;
-}
-
-.features h2 {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.feature-item {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.feature-item img {
-    width: 100px;
-    height: 100px;
-}
-
-.feature-item h3 {
-    font-size: 24px;
-    margin: 20px 0 10px;
-}
-
-footer {
-    background-color: #3a2f29; /* Цвет фона подвала для гармонии с основным сайтом */
-    color: #e6ded5; /* Пастельный цвет текста */
-    padding: 40px 0;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footer-logo h2 {
-    font-family: 'Pacifico', cursive; /* Стилизация текста для логотипа */
-    font-size: 24px;
-    color: #f4ece2; /* Логотип немного светлее */
-}
-
-.footer-logo p {
-    margin: 5px 0;
-}
-
-.footer-info, .footer-hours, .footer-social {
-    flex: 1;
-    margin-left: 20px;
-}
-
-.footer-info h3, .footer-hours h3, .footer-social h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #e0d7ce; /* Цвет для заголовков секций */
-}
-
-.footer-info ul, .footer-social ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-info ul li, .footer-social ul li {
-    margin-bottom: 8px;
-}
-
-.footer-info ul li a, .footer-social ul li a {
-    color: #e6ded5;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-info ul li a:hover, .footer-social ul li a:hover {
-    color: #c7b9ad; /* Цвет при наведении */
-}
-
-.footer-hours p {
-    margin-bottom: 5px;
-}
-
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .footer-info, .footer-hours, .footer-social {
-        margin-left: 0;
-        margin-top: 20px;
-    }
-}
-
-
-/* Search Bar Styles */
-.search-bar {
-    display: none;
-    width: 100%;
-    background-color: #F8F4EC;
-    padding: 15px;
-    position: absolute;
-    top: 80px; /* Adjust based on your header height */
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-}
-
-.search-bar input[type="text"] {
-    width: calc(100% - 140px);
-    padding: 15px;
-    border: 1px solid #c4c4c4;
-    border-radius: 30px;
-    font-size: 16px;
-    color: #555;
-    background-color: #fdfdfd;
-    background-image: url('search-icon.png'); /* Use an icon for the search */
-    background-position: 15px center;
-    background-repeat: no-repeat;
-    padding-left: 50px; /* Space for the search icon */
-    transition: all 0.3s ease;
-}
-
-.search-bar input[type="text"]:focus {
-    border-color: #b08650;
-    outline: none;
-}
-
-.search-bar button {
-    width: 120px;
-    padding: 15px;
-    background-color: #8B5A48;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    margin-left: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.search-bar button:hover {
-    background-color: #734438;
-}
-
-.catalog {
-    margin-top: 50px;
-}
-
-.catalog h3 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2em;
-    color: #e25d67;
-}
-
-.catalog-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.catalog-item {
+.main-menu ul li {
     position: relative;
-    height: 300px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.catalog-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.main-menu ul li a {
+    color: #fff; /* Белый текст */
+    font-size: 16px;
+    padding: 5px 10px;
+    text-transform: uppercase;
 }
 
-.catalog-item a {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 20px;
-    text-decoration: none;
-    font-size: 1.5em;
-}
-
-/* Адаптивность для более узких экранов */
-@media (max-width: 768px) {
-    .catalog-grid {
-        grid-template-columns: repeat(2, 1fr); /* Две колонки на средних экранах */
-    }
-}
-
-@media (max-width: 480px) {
-    .catalog-grid {
-        grid-template-columns: 1fr; /* Одна колонка на маленьких экранах */
-    }
-}
-/* Раздел "Об авторе" */
-.about-author {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: #f9f7f5;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.about-author h3 {
-    text-align: center;
-    font-size: 2em;
-    color: #e25d67;
-    width: 100%;
-}
-
-.author-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.author-photo img {
-    max-width: 200px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.author-bio {
-    flex: 1;
-    font-size: 1.2em;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Раздел "Отзывы" */
-.reviews {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: #f9f7f5;
-    border-radius: 15px;
-}
-
-.reviews h3 {
-    text-align: center;
-    font-size: 2em;
-    color: #e25d67;
-    margin-bottom: 30px;
-}
-
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Три отзыва в ряд */
-    gap: 20px;
-}
-
-.review-item {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.review-text {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.review-author {
-    text-align: right;
-    font-style: italic;
-    color: #888;
-}
-
-/* Адаптивность для более узких экранов */
-@media (max-width: 768px) {
-    .reviews-grid {
-        grid-template-columns: repeat(2, 1fr); /* Два отзыва в ряд */
-    }
-}
-
-@media (max-width: 480px) {
-    .reviews-grid {
-        grid-template-columns: 1fr; /* Один отзыв в ряд */
-    }
-}
-
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: #fff;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
+    color: #333;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
 
-html {
-    scroll-behavior: smooth;
+.search-popup {
+    display: none;
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    top: 100px;
+    right: 50px;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('../images/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    padding: 80px 20px;
+    position: relative;
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero .cta-button a {
+    background-color: #f7c08a;
+    padding: 10px 30px;
+    color: black;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+/* Features Section */
+.features {
+    padding: 50px 20px;
+    background-color: #fff2e2; /* Светло-оранжевый фон */
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+.feature-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.feature-item {
+    flex: 1 1 200px;
+    text-align: center;
+}
+
+.feature-item img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.feature-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Catalog Section */
+.catalog {
+    padding: 50px 20px;
+}
+
+.catalog h3 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.catalog-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.catalog-item {
+    background-size: cover;
+    background-position: center;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+}
+
+.catalog-item a {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* About Author Section */
+.about-author {
+    background-color: #fff2e2;
+    padding: 50px 20px;
+}
+
+.about-author h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+.author-content {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.author-photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.author-bio {
+    max-width: 600px;
+    text-align: left;
+}
+
+/* Reviews Section */
+.reviews {
+    padding: 50px 20px;
+}
+
+.reviews h3 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.reviews-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.review-item {
+    background-color: #f9f4ec;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.review-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.review-author {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-logo h2 {
+    font-size: 24px;
+}
+
+.footer-info ul,
+.footer-social ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-info ul li,
+.footer-social ul li {
+    margin-bottom: 10px;
+}
+
+.footer-info ul li a,
+.footer-social ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-hours p {
+    margin: 5px 0;
 }
