@@ -12,7 +12,7 @@ function loadProducts(limit, offset, category = '') {
 
             products.forEach(product => {
                 const productItem = `
-                    <div class="product" data-product-id="${product.id}" >
+                    <div class="product-item" data-product-id="${product.id}" >
                         <h2>${product.name}</h2>
                         <p>${product.description}</p>
                         <p>Цена: ${product.price} руб.</p>
@@ -21,7 +21,7 @@ function loadProducts(limit, offset, category = '') {
                 `;
                 productList.innerHTML += productItem;
             });
-            document.querySelectorAll('.product').forEach(product => {
+            document.querySelectorAll('.product-item').forEach(product => {
                 product.addEventListener('click', function() {
                     const productId = this.dataset.productId; // Берем id товара
                     loadProductDetails(productId); // Загружаем данные товара по id

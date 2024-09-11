@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сокровищница дракона - Каталог</title>
     <link rel="stylesheet" href="../styles/catalog.css">
+    <!-- <link rel="stylesheet" href="../styles/pop-up_style.css"> -->
 </head>
 <body>
     <header>
@@ -72,18 +73,12 @@
                 </div>
 
                 <h3>Все товары</h3>
-                <div class="product-grid">
-                    <div class="product-item">
-                        <img src="images/product3.jpg" alt="Product 3">
-                        <h4>Открытка с драконами</h4>
-                        <p class="price">300 руб</p>
-                    </div>
-                    <div class="product-item">
-                        <img src="images/product4.jpg" alt="Product 4">
-                        <h4>Вязаная игрушка</h4>
-                        <p class="price">1500 руб</p>
-                    </div>
-                    <!-- Add more products as needed -->
+                <div class="product-grid" id="product-list"> <!-- Добавлен элемент с id product-list -->
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            loadProducts(10, 0, '');
+                        });
+                    </script>
                 </div>
             </section>
         </section>
@@ -97,6 +92,7 @@
         </div>
     </footer>
 
+    <script src="../scripts/catalog.js"></script>
     <script src="../scripts/catalog.js"></script>
 </body>
 </html>
