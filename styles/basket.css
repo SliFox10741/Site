@@ -1,0 +1,133 @@
+.basket {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.33); 
+    z-index: 1000; 
+    width: 100%;
+    height: 100%;
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    overflow-y: scroll;
+  }
+  
+
+  .basket__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    width: 100%;
+    max-width: 800px;
+    min-height: 300px;
+    background-color: #fff;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    position: relative;
+  }
+  
+
+  .basket__item {
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+  }
+  
+  .basket__item:last-of-type {
+    border-bottom: none;
+  }
+  
+  .basket__title {
+    font-size: 20px;
+  }
+  
+
+  .basket__product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .basket__product-wrap {
+    display: flex;
+    align-items: center;
+  }
+  
+  .basket__product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-right: 10px;
+  }
+  
+  .basket__product-title {
+    max-width: 300px;
+    font-weight: 500;
+  }
+  
+  .basket__product-price {
+    font-size: 18px;
+    margin-right: 15px;
+  }
+  
+
+  .basket__product-delete {
+    font-size: 12px;
+    padding: 5px;
+    cursor: pointer;
+    color: #d62240;
+  }
+  
+  .basket__cost {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 5px;
+  }
+  
+  .basket__cost-title {
+    margin-right: 15px;
+    font-size: 20px;
+    color: #364364;
+    text-align: right;
+  }
+  
+  .basket__cost-value {
+    font-size: 20px;
+  }
+  
+  .basket__close {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    color: rgba(54, 67, 100, 0.7);
+    font-size: 20px;
+  }
+  
+  .basket__close:hover {
+    color: rgb(54, 67, 100);
+  }
+  
+  .basket--open {
+    display: flex;
+  }
+
+  /* .basket {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.33);
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    display: none; 
+    justify-content: center;
+    align-items: center;
+}
+
+.basket--open {
+    display: flex;
+} */

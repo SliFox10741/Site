@@ -1,3 +1,4 @@
+// Функция для загрузки товаров
 function loadProducts(limit, offset, category = '') {
     let url = `http://192.168.0.16:3000/products?limit=${limit}&offset=${offset}`;
     if (category) {
@@ -12,18 +13,20 @@ function loadProducts(limit, offset, category = '') {
 
             products.forEach(product => {
                 const productItem = `
-                    <div class="product-item" data-product-id="${product.id}" >
+                    <div class="product-item" data-product-id="${product.id}">
                         <h2>${product.name}</h2>
                         <p>${product.description}</p>
                         <p>Цена: ${product.price} руб.</p>
-                        <img src="../images/${product.photo_url }" alt="${product.name}" width="200" />
+                        <img src="../images/${product.photo_url}" alt="${product.name}" width="200" />
                     </div>
                 `;
                 productList.innerHTML += productItem;
             });
+
+            // Добавляем обработчики событий на каждый товар
             document.querySelectorAll('.product-item').forEach(product => {
                 product.addEventListener('click', function() {
-                    const productId = this.dataset.productId; // Берем id товара
+                    const productId = this.dataset.productId;
                     loadProductDetails(productId); // Загружаем данные товара по id
                 });
             });
@@ -31,17 +34,27 @@ function loadProducts(limit, offset, category = '') {
         .catch(error => console.error('Error loading products:', error));
 }
 
+// Функция для загрузки деталей товара и отображения popup
 function loadProductDetails(productId) {
-    const url = `http://192.168.0.16:3000/products/${productId}`; // URL с id товара
+    if (!productId || isNaN(productId)) {
+        console.error('Invalid product ID:', productId);
+        return;
+    }
+    const url = `http://localhost:3000/products/${productId}`; 
+
 
     fetch(url)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(product => {
-            // Удаляем старый pop-up, если он существует
+            // Отрисовка popup с деталями продукта
             const oldPopup = document.getElementById('product-popup');
             if (oldPopup) oldPopup.remove();
 
-            // HTML для pop-up с данными о товаре
             const popupContent = `
                 <div id="product-popup" class="popup">
                     <div class="popup-content">
@@ -50,31 +63,37 @@ function loadProductDetails(productId) {
                         <p>${product.description}</p>
                         <p>Цена: ${product.price} руб.</p>
                         <img src="../images/${product.photo_url}" alt="${product.name}" width="200" />
+                        <button id="save-product-btn" data-product-id="${product.id}">Сохранить в корзину</button>
                     </div>
                 </div>
             `;
 
-            // Вставляем pop-up в DOM
             document.body.insertAdjacentHTML('beforeend', popupContent);
 
-            // Открываем pop-up (меняем стиль display на flex для центрирования)
             const popup = document.getElementById('product-popup');
-            popup.style.display = 'flex';
-
-            // Обработка закрытия pop-up при клике на крестик
             const closeBtn = popup.querySelector('.popup-close');
-            closeBtn.addEventListener('click', () => {
-                popup.remove(); // Удаляем pop-up из DOM при закрытии
-            });
+            const saveBtn = popup.querySelector('#save-product-btn');
 
-            popup.addEventListener('click', (event) => {
-                const content = popup.querySelector('.popup-content');
-                if (!content.contains(event.target)) { // Если клик вне контента
-                    popup.remove(); // Удаляем pop-up
-                }
+            closeBtn.addEventListener('click', () => popup.remove());
+
+            saveBtn.addEventListener('click', () => {
+                const productId = saveBtn.dataset.productId;
+                const productName = popup.querySelector('h2').textContent;
+                const productPrice = parseFloat(popup.querySelector('p:nth-of-type(2)').textContent.replace('Цена: ', '').replace(' руб.', ''));
+
+                cart.add({
+                    id: parseInt(productId),
+                    name: productName,
+                    price: productPrice,
+                    count: 1
+                });
+                cart.renderMenuCart();
+                alert('Товар добавлен в корзину');
+                popup.remove();
             });
         })
-        .catch(error => console.error('Error loading product details:', error));
+        
+        .catch(error => {
+            console.error('Error loading product details:', error);
+        });
 }
-
-

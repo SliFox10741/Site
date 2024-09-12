@@ -178,7 +178,7 @@ nav a {
 
 /* Основные стили для pop-up */
 .popup {
-    display: none; /* Скрыт по умолчанию */
+    display: flex; /* Скрыт по умолчанию */
     position: fixed; /* Зафиксированное положение */
     top: 0;
     left: 0;
@@ -188,7 +188,8 @@ nav a {
     z-index: 9999; /* Высокий z-index, чтобы быть поверх всего */
     justify-content: center; /* Центрирование по горизонтали */
     align-items: center; /* Центрирование по вертикали */
-    overflow: auto; /* Если контента будет много */
+    user-select: none;
+    overflow-y: scroll; /* Если контента будет много */
 }
 
 /* Внутренний блок с контентом */
@@ -235,3 +236,44 @@ nav a {
         grid-template-columns: 1fr;
     }
 } */
+.cart_button {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #364364;
+    transition: 0.1s;
+    cursor: pointer;
+    position: fixed; /* Фиксированное расположение */
+    top: 50px; /* в правом верхнем углу */
+    right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+    padding: 15px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Увеличиваем кнопку при наведении на нее */
+  .cart_button:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Стилизуем счетчик товаров */
+  .cart_button__num {
+    position: absolute;
+    background-color: #d62240;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    top: -5px;
+    right: -5px;
+  }
+
+  
