@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сокровищница дракона - Каталог</title>
     <link rel="stylesheet" href="../styles/catalog.css">
-    <!-- <link rel="stylesheet" href="../styles/pop-up_style.css"> -->
+    <link rel="stylesheet" href="../styles/basket.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
 </head>
+
 <body>
     <header>
-        <div class="logo"><a href="index.html">Сокровищница дракона</a></div>
+        <div class="logo"><a href="main.html">Сокровищница дракона</a></div>
         <nav class="main-menu">
             <ul>
                 <li><a href="#">Каталог</a></li>
@@ -27,6 +31,63 @@
     </header>
 
     <main>
+        <!-- HTML разметка -->
+        <div class="basket" id="cart">
+            <div class="basket__container" id="basket_container">
+                <div class="basket__item">
+                    <h1 class="basket__title">Оформление заказа</h1>
+                </div>
+                <div class="basket__item" id="basket_product_list">
+                    <script type="text/template" id="cart-template">
+                        <% _.each(goods, function(item) { %>
+                            <div class="js-cart-item" data-id="<%= item.id %>">
+                                <span class="js-count"><%= item.count %></span> x 
+                                <span><%= item.name %></span>
+                                <span class="js-summa"><%= item.count * item.price %> руб.</span>
+                                <button class="js-change-count" data-id="<%= item.id %>" data-delta="1">+</button>
+                                <button class="js-change-count" data-id="<%= item.id %>" data-delta="-1">-</button>
+                                <button class="js-remove-from-cart" data-id="<%= item.id %>">Удалить</button>
+                            </div>
+                        <% }); %>
+                    </script>
+                </div>
+                <div class="basket__item">
+                    <div class="basket__cost">
+                        <h2 class="basket__cost-title">Итого</h2>
+                        <output class="basket__cost-value" id="total-cart-summa">0</output> руб.
+                    </div>
+                </div>
+                <button class="basket__close" id="basket_close">✖</button>
+            </div>
+        </div>
+
+        <button class="cart_button" id="cart_button">
+            <img class="cart_button__image" src="../images/cart.png" alt="Cart" />
+            <div class="cart_button__num" id="cart_button_num">0</div>
+        </button>
+
+        <!-- <div class="basket" id="cart">
+            <div class="basket__container">
+                <div class="basket__item">
+                    <h1 class="basket__title">Оформление заказа</h1>
+                </div>
+                <div class="basket__item" id="basket_product_list"></div>
+                <div class="basket__item">
+                    <div class="basket__cost">
+                        <h2 class="basket__cost-title">Итого</h2>
+                        <output class="basket__cost-value" id="total-cart-summa">0</output> руб.
+                    </div>
+                </div>
+                <button class="basket__close" id="basket_close">✖</button>
+            </div>
+        </div>
+
+        <button class="cart_button" id="cart_button">
+            <img class="cart_button__image" src="cart.png" alt="Cart" />
+            <div class="cart_button__num" id="cart_button_num">0</div>
+        </button> -->
+
+
         <section class="catalog-section">
             <aside class="filters">
                 <h3>Фильтры</h3>
@@ -80,6 +141,7 @@
                         });
                     </script>
                 </div>
+
             </section>
         </section>
     </main>
@@ -92,7 +154,12 @@
         </div>
     </footer>
 
+
+
+    <script src="../scripts/cart.js"></script>
     <script src="../scripts/catalog.js"></script>
-    <script src="../scripts/catalog.js"></script>
+    <!-- <script src="../scripts/catalog.js"></script> -->
+    <!-- <script src="../scripts/basket.js"></script> -->
 </body>
+
 </html>
