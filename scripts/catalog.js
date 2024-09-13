@@ -1,6 +1,6 @@
 // Функция для загрузки товаров
 function loadProducts(limit, offset, category = '') {
-    let url = `http://192.168.0.16:3000/products?limit=${limit}&offset=${offset}`;
+    let url = `http://localhost:3000/products?limit=${limit}&offset=${offset}`;
     if (category) {
         url += `&category=${category}`;
     }

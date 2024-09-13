@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <script type="text/template" id="cart-template">
+        <ul>
+            <% _.each(goods, function(item) { %>
+                <li><%= item.name %> - <%= item.count %> - <%= item.price %></li>
+            <% }); %>
+        </ul>
+    </script>
+
+    <div id="basket_product_list"></div>
+
+    <script>
+        $(document).ready(function() {
+            function renderCart() {
+                console.log('Start render');
+                var templateHtml = $('#cart-template').html();
+                if (!templateHtml) {
+                    console.error('Шаблон не найден или пуст.');
+                    return;
+                }
+                var template = _.template(templateHtml);
+                var data = {
+                    goods: [
+                        { name: 'Product 1', count: 2, price: 100 },
+                        { name: 'Product 2', count: 1, price: 200 }
+                    ]
+                };
+                console.log('Товары в корзине:', data);
+                $('#basket_product_list').html(template(data));
+            }
+
+            renderCart();
+        });
+    </script>
+</body>
+</html>

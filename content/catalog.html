@@ -5,40 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сокровищница дракона - Каталог</title>
+    <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/catalog.css">
     <link rel="stylesheet" href="../styles/basket.css">
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
 </head>
 
 <body>
     <header>
-        <div class="logo"><a href="main.html">Сокровищница дракона</a></div>
+        <div class="logo"><a href="index.html">Сокровищница дракона</a></div>
         <nav class="main-menu">
             <ul>
                 <div class="dropdown">
-                <li><a href="#">Каталог</a></li>
+                    <li><a href="#">Каталог</a></li>
                     <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <a href="catalog-holders.html">Держатели и разделители</a>
+                        <a href="catalog-cards.html">Открытки</a>
+                        <a href="catalog-bookmarks.html">Закладки</a>
+                        <a href="catalog-figures.html">Фигурки</a>
+                        <a href="catalog-giftsets.html">Подарочные наборы</a>
+                        <a href="catalog-knitted.html">Вязаные изделия</a>
                     </div>
                 </div>
                 <li><a href="delivery.html">Доставка</a></li>
-                <li><a href="#reviews" class="menu-link">Отзывы</a></li>
-                <li><a href="#about" class="menu-link">О нас</a></li>
-                <li><a href="#footer" class="menu-link">Контакты</a></li>
+                <li><a href="index.html#reviews" class="menu-link">Отзывы</a></li>
+                <li><a href="index.html#about" class="menu-link">О нас</a></li>
+                <li><a href="index.html#footer" class="menu-link">Контакты</a></li>
             </ul>
         </nav>
-        
+
         <div class="social-icons">
-            <a href="#" button id="searchBtn"></button><img src="../images/search.png" alt="Search"></a>
-            <a href="#"><img src="../images/tik-tok.png" alt="TikTok"></a>
-            <a href="#"><img src="../images/vk_icon_135042.png" alt="VK"></a>
-            <a href="#"><img src="../images/png-clipart-telegram-computer-icons-logo-android-angle-triangle-thumbnail.png" alt="Telegram"></a>
+            <a href="#" button id="searchBtn"></button><img src="../images/searchh.png" alt="Search"></a>
+            <a href="#"><img src="../images/ttt.png" alt="TikTok"></a>
+            <a href="#"><img src="../images/vkk.png" alt="VK"></a>
+            <a href="#"><img src="../images/tg_negate.png" alt="Telegram"></a>
         </div>
+
     </header>
-    
+
 
     <main>
         <!-- HTML разметка -->
@@ -48,7 +54,7 @@
                     <h1 class="basket__title">Оформление заказа</h1>
                 </div>
                 <div class="basket__item" id="basket_product_list">
-                    <script type="text/template" id="cart-template">
+                    <script type="text/template" id="cart_template">
                         <% _.each(goods, function(item) { %>
                             <div class="js-cart-item" data-id="<%= item.id %>">
                                 <span class="js-count"><%= item.count %></span> x 
@@ -75,28 +81,6 @@
             <img class="cart_button__image" src="../images/cart.png" alt="Cart" />
             <div class="cart_button__num" id="cart_button_num">0</div>
         </button>
-
-        <!-- <div class="basket" id="cart">
-            <div class="basket__container">
-                <div class="basket__item">
-                    <h1 class="basket__title">Оформление заказа</h1>
-                </div>
-                <div class="basket__item" id="basket_product_list"></div>
-                <div class="basket__item">
-                    <div class="basket__cost">
-                        <h2 class="basket__cost-title">Итого</h2>
-                        <output class="basket__cost-value" id="total-cart-summa">0</output> руб.
-                    </div>
-                </div>
-                <button class="basket__close" id="basket_close">✖</button>
-            </div>
-        </div>
-
-        <button class="cart_button" id="cart_button">
-            <img class="cart_button__image" src="cart.png" alt="Cart" />
-            <div class="cart_button__num" id="cart_button_num">0</div>
-        </button> -->
-
 
         <section class="catalog-section">
             <aside class="filters">
@@ -131,12 +115,12 @@
                     <h3>Товары месяца со скидкой</h3>
                     <div class="product-grid">
                         <div class="product-item">
-                            <img src="images/product1.jpg" alt="Product 1">
+                            <img src="../images/photo1.jpg" alt="Product 1">
                             <h4>Фигурка дракона</h4>
                             <p class="price">1200 руб <span class="discount">1000 руб</span></p>
                         </div>
                         <div class="product-item">
-                            <img src="images/product2.jpg" alt="Product 2">
+                            <img src="../images/photo1.jpg" alt="Product 2">
                             <h4>Закладка с драконами</h4>
                             <p class="price">500 руб <span class="discount">400 руб</span></p>
                         </div>
@@ -166,10 +150,16 @@
 
 
 
-    <script src="../scripts/cart.js"></script>
     <script src="../scripts/catalog.js"></script>
-    <!-- <script src="../scripts/catalog.js"></script> -->
-    <!-- <script src="../scripts/basket.js"></script> -->
+    <script src="../scripts/script.js"></script> 
+    <script src="../scripts/cart.js"></script>   
+
+    <script>
+        $(document).ready(function () {
+            cart.init();
+        });
+
+    </script>
 </body>
 
 </html>

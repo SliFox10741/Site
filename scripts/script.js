@@ -1,17 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var searchButton = document.getElementById('search-button');
-    var searchBar = document.getElementById('search-bar');
 
-    // Toggle the search bar when the search button is clicked
-    searchButton.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (searchBar.style.display === 'none' || searchBar.style.display === '') {
-            searchBar.style.display = 'block';
-        } else {
-            searchBar.style.display = 'none';
-        }
-    });
-});
 document.getElementById('searchBtn').addEventListener('click', function () {
     const searchPopup = document.getElementById('searchPopup');
     if (searchPopup.style.display === 'block') {
@@ -23,13 +10,24 @@ document.getElementById('searchBtn').addEventListener('click', function () {
 
 document.querySelectorAll('.menu-link').forEach(link => {
     link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
-        
-        window.scrollTo({
-            top: targetSection.offsetTop,
-            behavior: 'smooth'
-        });
+        const href = this.getAttribute('href');
+        const url = new URL(href, window.location.href);
+        const targetId = url.hash.substring(1);
+
+        if (window.location.pathname === url.pathname) {
+            if (targetId) {
+                e.preventDefault();
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    console.warn('Целевая секция не найдена:', targetId);
+                }
+            }
+        }
     });
 });

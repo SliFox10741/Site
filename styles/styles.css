@@ -1,9 +1,6 @@
 /* Общие стили */
 body {
     font-family: 'Arial', sans-serif;
-/* Общие стили */
-body {
-    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #ffeaf2; /* Мягкий пастельный розовый фон */
@@ -34,10 +31,8 @@ header {
     font-size: 24px;
     font-weight: bold;
     color: #fff; /* Белый текст */
-    color: #fff; /* Белый текст */
 }
 
-.main-menu ul {
 .main-menu ul {
     list-style: none;
     display: flex;
@@ -101,17 +96,12 @@ header {
     display: none;
     position: absolute;
     background-color: white;
-    background-color: white;
     padding: 10px;
-    border: 1px solid #ccc;
-    top: 100px;
-    right: 50px;
     border: 1px solid #ccc;
     top: 100px;
     right: 50px;
 }
 
-/* Hero Section */
 /* Hero Section */
 .hero {
     min-height: calc(100vh - 60px); /* Вычитаем высоту шапки */
@@ -126,13 +116,10 @@ header {
 
 .hero h2 {
     font-size: 48px;
-    font-size: 48px;
     margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
     font-size: 18px;
     margin-bottom: 30px;
 }
@@ -158,7 +145,6 @@ header {
 }
 .features h2 {
     margin-bottom: 30px;
-    margin-bottom: 30px;
     font-size: 36px;
     color: #5f6997;
 }
@@ -167,14 +153,9 @@ header {
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
 }
 
 .feature-item {
-    flex: 1 1 200px;
     flex: 1 1 200px;
     text-align: center;
 }
@@ -183,13 +164,9 @@ header {
     width: 80px;
     height: 80px;
     margin-bottom: 15px;
-    width: 80px;
-    height: 80px;
-    margin-bottom: 15px;
 }
 
 .feature-item h3 {
-    font-size: 20px;
     font-size: 20px;
     margin-bottom: 10px;
     color: #5f6997;
@@ -208,7 +185,6 @@ header {
 .catalog h3 {
     text-align: center;
     font-size: 36px;
-    font-size: 36px;
     margin-bottom: 30px;
     color: #5f6997;
 }
@@ -216,23 +192,13 @@ header {
 .catalog-grid {
     display: flex;
     flex-wrap: wrap;
-    display: flex;
-    flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
     justify-content: center;
 }
 
 .catalog-item {
     background-size: cover;
     background-position: center;
-    width: 200px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    border-radius: 10px;
     width: 200px;
     height: 300px;
     display: flex;
@@ -249,20 +215,11 @@ header {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 5px;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    border-radius: 5px;
     text-align: center;
 }
 
 /* About Author Section */
-/* About Author Section */
 .about-author {
-    background-color: #fff2e2;
-    padding: 50px 20px;
     background-color: #fff2e2;
     padding: 50px 20px;
 }
@@ -272,15 +229,10 @@ header {
     text-align: center;
     margin-bottom: 30px;
     font-size: 36px;
-    margin-bottom: 30px;
-    font-size: 36px;
 }
 
 .author-content {
     display: flex;
-    gap: 30px;
-    justify-content: center;
-    align-items: center;
     gap: 30px;
     justify-content: center;
     align-items: center;
@@ -289,22 +241,16 @@ header {
 .author-photo img {
     width: 150px;
     height: 150px;
-    width: 150px;
-    height: 150px;
     border-radius: 50%;
 }
 
 .author-bio {
     max-width: 600px;
     text-align: left;
-    max-width: 600px;
-    text-align: left;
 }
 
 /* Reviews Section */
-/* Reviews Section */
 .reviews {
-    padding: 50px 20px;
     padding: 50px 20px;
 }
 
@@ -312,17 +258,13 @@ header {
     color: #5f6997;
     text-align: center;
     font-size: 36px;
-    font-size: 36px;
     margin-bottom: 30px;
 }
 
 .reviews-grid {
     display: flex;
     flex-wrap: wrap;
-    display: flex;
-    flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
     justify-content: center;
 }
 
@@ -332,12 +274,9 @@ header {
     border-radius: 10px;
     width: 300px;
     text-align: center;
-    width: 300px;
-    text-align: center;
 }
 
 .review-text {
-    font-size: 16px;
     font-size: 16px;
     margin-bottom: 10px;
 }
@@ -374,28 +313,14 @@ footer {
 .footer-info ul li,
 .footer-social ul li {
     margin-bottom: 10px;
-.footer-info ul,
-.footer-social ul {
-    list-style: none;
-    padding: 0;
 }
 
-.footer-info ul li,
-.footer-social ul li {
-    margin-bottom: 10px;
-}
-
-.footer-info ul li a,
-.footer-social ul li a {
-    color: white;
 .footer-info ul li a,
 .footer-social ul li a {
     color: white;
     text-decoration: none;
 }
 
-.footer-hours p {
-    margin: 5px 0;
 .footer-hours p {
     margin: 5px 0;
 }
