@@ -42,9 +42,30 @@
             <a href="#"><img src="../images/vkk.png" alt="VK"></a>
             <a href="#"><img src="../images/tg_negate.png" alt="Telegram"></a>
         </div>
-
+        
+        <nav class="mobile-menu">
+            <div class="dropdown">
+                <li><a href="#">Каталог</a></li>
+                <div class="dropdown-content">
+                    <a href="catalog-holders.html">Держатели и разделители</a>
+                    <a href="catalog-cards.html">Открытки</a>
+                    <a href="catalog-bookmarks.html">Закладки</a>
+                    <a href="catalog-figures.html">Фигурки</a>
+                    <a href="catalog-giftsets.html">Подарочные наборы</a>
+                    <a href="catalog-knitted.html">Вязаные изделия</a>
+                </div>
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="delivery.html">Доставка</a></li>
+                    <li><a href="index.html#reviews" class="menu-link">Отзывы</a></li>
+                    <li><a href="index.html#about" class="menu-link">О нас</a></li>
+                    <li><a href="index.html#footer" class="menu-link">Контакты</a></li>
+            </ul>
+        </nav>
     </header>
 
+    
 
     <main>
 
@@ -54,6 +75,7 @@
         <!-- Корзина -->
         <div id="cartModal" class="cart-modal">
             <!-- Содержимое корзины -->
+            <h2>Ваш заказ:</h2>
             <div id="cartItems"></div>
             <div class="cart-total">
                 <h3>Итого:</h3>
@@ -101,14 +123,18 @@
                     <h3>Товары месяца со скидкой</h3>
                     <div class="product-grid">
                         <div class="product-item">
-                            <img src="../images/photo1.jpg" alt="Product 1">
+                            <img src="../images/photo1.jpg" alt="Фигурка дракона">
                             <h4>Фигурка дракона</h4>
                             <p class="price">1200 руб <span class="discount">1000 руб</span></p>
+                            <button class="btn-details">Подробнее</button>
+                            <button class="btn-add">В корзину</button>
                         </div>
                         <div class="product-item">
-                            <img src="../images/photo1.jpg" alt="Product 2">
+                            <img src="../images/photo2.jpg" alt="Закладка с драконами">
                             <h4>Закладка с драконами</h4>
                             <p class="price">500 руб <span class="discount">400 руб</span></p>
+                            <button class="btn-details">Подробнее</button>
+                            <button class="btn-add">В корзину</button>
                         </div>
                     </div>
                 </div>
@@ -134,18 +160,10 @@
         </div>
     </footer>
 
-
-
     <script src="../scripts/catalog.js"></script>
     <script src="../scripts/script.js"></script>
     <script src="../scripts/cart.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            cart.init();
-        });
-
-    </script>
+    <script src="../scripts/mobile_menu.js"></script>
 </body>
 
 </html>

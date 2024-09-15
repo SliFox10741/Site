@@ -24,14 +24,19 @@ document.addEventListener('DOMContentLoaded', function () {
             const cartItem = document.createElement('div');
             cartItem.classList.add('cart-item');
             cartItem.innerHTML = `
-                <span>${item.name}</span>
-                <span>${item.price * item.quantity} руб.</span>
+            <img src="${item.image}" alt="Продукт">
+                <div class="item-details">
+                <span class="item-name">${item.name}</span>
                 <div class="quantity-controls">
                     <button onclick="Cart.updateQuantity(${index}, -1)">-</button>
-                    <span>${item.quantity}</span>
+                    <span class="item-quantity">${item.quantity}</span>
                     <button onclick="Cart.updateQuantity(${index}, 1)">+</button>
                 </div>
-                <button onclick="Cart.removeFromCart(${index})">Удалить</button>
+            </div>
+            <div class="item-price">
+                <span>${item.price * item.quantity} руб.</span>
+            </div>
+            <button class="remove-item" onclick="Cart.removeFromCart(${index})">✕</button>
             `;
             cartItemsContainer.appendChild(cartItem);
             totalSum += item.price * item.quantity;

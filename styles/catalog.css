@@ -1,9 +1,18 @@
+.catalog-section {
+    display: flex;                  /* Flex-контейнер для горизонтального размещения */
+    flex-direction: row;            /* Направление — по горизонтали */
+    justify-content: space-between; /* Равномерное распределение элементов по ширине */
+    align-items: flex-start;        /* Не растягиваем элементы по вертикали */
+    gap: 20px;                      /* Отступ между блоками */
+    padding: 20px;
+}
+
 .filters {
     background: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 25%;
+    width: 25%;                     /* Фиксированная ширина для блока фильтров */
 }
 
 .filters h3 {
@@ -40,7 +49,7 @@
 }
 
 .catalog-items {
-    flex: 1;
+    flex: 1;                  /* Каталог товаров занимает оставшееся пространство */
     background: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 15px;
@@ -141,7 +150,7 @@
     padding: 20px;
     max-width: 600px;
     margin: auto;   
-    border-radius: 8px;
+    /* border-radius: 8px; */
     position: relative;
 }
 
@@ -289,7 +298,6 @@
 }
 
 .cart_button {
-    position: relative;
     display: inline-block;
     cursor: pointer;
     padding: 10px;
@@ -312,3 +320,294 @@
     justify-content: center;
     align-items: center;
 }
+
+
+.product-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.product-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    padding: 15px;
+    text-align: center;
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+    /* border-radius: 8px; */
+    margin-bottom: 10px;
+}
+
+.product-item h4 {
+    font-size: 18px;
+    color: #3e2723;
+    margin-bottom: 10px;
+}
+
+.product-item .price {
+    font-size: 16px;
+    color: #d32f2f; /* Red text for the original price */
+}
+
+.product-item .discount {
+    text-decoration: line-through;
+    color: #757575;
+    margin-left: 10px;
+}
+
+.btn-details, .btn-add {
+    display: inline-block;
+    background-color: #8d6e63; /* Brown color for buttons */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.btn-details:hover, .btn-add:hover {
+    background-color: #795548;
+}
+
+.btn-add {
+    background-color: #5d4037;
+}
+
+.btn-add:hover {
+    background-color: #3e2723;
+}
+
+/* Для больших экранов (по 3 элемента в ряд) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 столбца */
+    gap: 20px;
+}
+
+/* Для средних экранов (по 2 элемента в ряд) */
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 столбца */
+    }
+}
+
+/* Для маленьких экранов (по 1 элементу в ряд) */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 столбец */
+    }
+}
+
+
+/* --- Адаптивность для экранов шириной до 768px (планшеты) --- */
+@media (max-width: 768px) {
+    .catalog-section {
+        flex-direction: column;         /* Столбцы вместо строк для удобства на маленьких экранах */
+        gap: 10px;                      /* Уменьшаем отступы между блоками */
+    }
+
+    .filters {
+        width: 100%;                    /* Фильтры занимают всю ширину */
+        margin-bottom: 20px;             /* Добавляем отступ под фильтрами */
+    }
+
+    .catalog-items {
+        width: 100%;                    /* Каталог товаров занимает всю ширину */
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Сетка товаров в 2 колонки */
+        gap: 15px;                      /* Уменьшаем расстояние между товарами */
+    }
+
+    .cart_button {
+        width: 60px;                    /* Уменьшаем размер кнопки корзины */
+        height: 60px;
+        top: 80px;                      /* Корректируем позицию кнопки корзины */
+        right: 30px;
+    }
+
+    .cart_button img {
+        width: 40px;                    /* Корректируем размер изображения в кнопке корзины */
+        height: 40px;
+    }
+
+    .popup-content {
+        max-width: 90%;                 /* Сужаем pop-up окно на экранах планшетов */
+        margin: 20px;                   /* Отступы для мобильного окна */
+    }
+}
+
+/* --- Адаптивность для экранов шириной до 480px (мобильные устройства) --- */
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr;     /* Одна колонка товаров на маленьких экранах */
+    }
+
+    .filters {
+        padding: 15px;                  /* Уменьшаем отступы у блока фильтров */
+    }
+
+    .filter-button {
+        padding: 8px 16px;              /* Корректируем размеры кнопки фильтров */
+        font-size: 14px;
+    }
+
+    .cart_button {
+        width: 50px;                    /* Еще больше уменьшаем кнопку корзины */
+        height: 50px;
+        top: 60px;
+        right: 20px;
+    }
+
+    .cart_button img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .popup-content {
+        max-width: 95%;                 /* Pop-up окно с отступами для узких экранов */
+        padding: 10px;                  /* Уменьшаем внутренние отступы pop-up */
+    }
+
+    .cart-content {
+        width: 90%;                     /* Ширина корзины адаптируется под экран */
+    }
+}
+
+
+
+
+
+/* Основной стиль для модального окна */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Изменяем выравнивание, чтобы popup начинался сверху */
+    z-index: 1000;
+    overflow-y: auto; /* Чтобы окно прокручивалось, если содержимое превышает высоту экрана */
+}
+
+/* Стили контента */
+.popup-content {
+    background-color: #fff;
+    /* border-radius: 10px; */
+    width: 100%; /* Делаем ширину на 100% */
+    max-width: none; /* Отменяем ограничение максимальной ширины */
+    height: 100%; /* Делаем высоту на 100% */
+    max-height: 100%; /* Отменяем ограничение высоты */
+    padding: 30px;
+    box-sizing: border-box; /* Чтобы padding учитывался в ширине */
+    display: flex;
+    flex-direction: column; /* Для правильного расположения внутри */
+    justify-content: space-between;
+    position: relative;
+}
+
+/* Добавляем отступы для верхней части */
+.popup-content .product-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-grow: 1; /* Контент должен занимать оставшееся пространство */
+}
+
+/* Стилизуем ссылку для возврата */
+.popup-back {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Стили для кнопки закрытия */
+.popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Стилизуем секцию изображения и текста продукта */
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.product-image {
+    max-width: 50%; /* Ограничиваем ширину изображения, чтобы оно занимало половину экрана */
+    height: auto;
+    /* border-radius: 8px; */
+    object-fit: cover;
+    max-height: 60%;
+}
+
+.product-info {
+    flex-grow: 1;
+    padding-left: 20px;
+}
+
+.product-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #8b4513;
+}
+
+.add-to-cart-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 2px solid #8b4513;
+    border-radius: 5px;
+    color: #8b4513;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #8b4513;
+    color: #fff;
+}
+
+/* Делаем модальное окно прокручиваемым, если его содержимое слишком велико */
+.popup {
+    overflow-y: auto;
+}
+
+
+.space-for-popup-products {
+    width: 20%;
+}
+

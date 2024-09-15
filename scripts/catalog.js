@@ -14,10 +14,13 @@ function loadProducts(limit, offset, category = '') {
             products.forEach(product => {
                 const productItem = `
                     <div class="product-item" data-product-id="${product.id}">
+                        <img src="../images/${product.photo_url}" alt="${product.name}" width="200" />
                         <h2>${product.name}</h2>
+
                         <p>${product.description}</p>
                         <p>Цена: ${product.price} руб.</p>
-                        <img src="../images/${product.photo_url}" alt="${product.name}" width="200" />
+                        <button class="btn-details">Подробнее</button>
+                        <button class="btn-add" data-product-id="${product.id}">В корзину</button>
                     </div>
                 `;
                 productList.innerHTML += productItem;
@@ -42,7 +45,6 @@ function loadProductDetails(productId) {
     }
     const url = `http://localhost:3000/products/${productId}`; 
 
-
     fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -58,12 +60,24 @@ function loadProductDetails(productId) {
             const popupContent = `
                 <div id="product-popup" class="popup">
                     <div class="popup-content">
+                        <a href="#" class="popup-back">← Вернуться</a>
                         <span class="popup-close">&times;</span>
-                        <h2>${product.name}</h2>
-                        <p>${product.description}</p>
-                        <p>Цена: ${product.price} руб.</p>
-                        <img src="../images/${product.photo_url}" alt="${product.name}" width="200" />
-                        <button id="save-product-btn" data-product-id="${product.id}">Сохранить в корзину</button>
+                        <div class="product-details">
+                            <div class="space-for-popup-products"></div>
+                        
+                            <img src="../images/${product.photo_url}" alt="${product.name}" class="product-image" />
+                            
+                            <div class="product-info">
+                                <h2>${product.name}</h2>
+                                <p>Артикул: ${product.article}</p>
+                                <p class="product-price">${product.price} руб.</p>
+                                <button id="save-product-btn" class="add-to-cart-btn" data-product-id="${product.id}">
+                                    В корзину
+                                </button>
+                                <p>Состав: ${product.material}</p>
+                                <p>Вес: ${product.weight} г</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `;
@@ -80,18 +94,27 @@ function loadProductDetails(productId) {
                 const productId = saveBtn.dataset.productId;
                 const productName = popup.querySelector('h2').textContent;
                 const productPrice = parseFloat(popup.querySelector('p:nth-of-type(2)').textContent.replace('Цена: ', '').replace(' руб.', ''));
+                const productImage = popup.querySelector('.product-image').src; // Путь до картинки
 
-                Cart.addToCart({
+                const productData = {
                     id: parseInt(productId),
                     name: productName,
                     price: productPrice,
-                    count: 1
-                });
-                        alert('Товар добавлен в корзину');
-                    popup.remove();
+                    count: 1,
+                    image: productImage // Добавляем путь до картинки
+                };
+
+                Cart.addToCart(productData);
+
+                // Сохраняем в localStorage
+                // let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                // cart.push(productData);
+                // localStorage.setItem('cart', JSON.stringify(cart));
+
+                alert('Товар добавлен в корзину');
+                popup.remove();
             });
         })
-        
         .catch(error => {
             console.error('Error loading product details:', error);
         });
