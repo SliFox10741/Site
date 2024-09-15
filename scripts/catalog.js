@@ -60,7 +60,6 @@ function loadProductDetails(productId) {
             const popupContent = `
                 <div id="product-popup" class="popup">
                     <div class="popup-content">
-                        <a href="#" class="popup-back">← Вернуться</a>
                         <span class="popup-close">&times;</span>
                         <div class="product-details">
                             <div class="space-for-popup-products"></div>
@@ -70,6 +69,8 @@ function loadProductDetails(productId) {
                             <div class="product-info">
                                 <h2>${product.name}</h2>
                                 <p>Артикул: ${product.article}</p>
+                                <p>Тэги: ${product.tegs}</p>
+                                <p>Просто какое-то невероятно интересное описание, прочитав которое, пользователь безумно захочет выкупить весь склад :))) </p>
                                 <p class="product-price">${product.price} руб.</p>
                                 <button id="save-product-btn" class="add-to-cart-btn" data-product-id="${product.id}">
                                     В корзину
@@ -93,9 +94,17 @@ function loadProductDetails(productId) {
             saveBtn.addEventListener('click', () => {
                 const productId = saveBtn.dataset.productId;
                 const productName = popup.querySelector('h2').textContent;
-                const productPrice = parseFloat(popup.querySelector('p:nth-of-type(2)').textContent.replace('Цена: ', '').replace(' руб.', ''));
-                const productImage = popup.querySelector('.product-image').src; // Путь до картинки
-
+                
+                // Найдите элемент с ценой по классу product-price
+                const productPriceText = popup.querySelector('.product-price').textContent;
+                
+                // Извлечение цены с помощью регулярного выражения
+                const productPrice = parseFloat(productPriceText.replace(/[^\d.-]+/g, '')); 
+            
+                // Получаем путь до изображения
+                const productImage = popup.querySelector('.product-image').src; 
+            
+                // Создаём объект продукта
                 const productData = {
                     id: parseInt(productId),
                     name: productName,
@@ -103,14 +112,10 @@ function loadProductDetails(productId) {
                     count: 1,
                     image: productImage // Добавляем путь до картинки
                 };
-
+            
+                // Добавляем продукт в корзину
                 Cart.addToCart(productData);
-
-                // Сохраняем в localStorage
-                // let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                // cart.push(productData);
-                // localStorage.setItem('cart', JSON.stringify(cart));
-
+            
                 alert('Товар добавлен в корзину');
                 popup.remove();
             });

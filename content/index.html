@@ -8,6 +8,16 @@
 </head>
 <body>
     <header>
+
+        <div class="hamburger-menu">
+            <button id="hamburger-btn" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+
+
         <div class="logo"><a href="index.html">Сокровищница дракона</a></div>
         <nav class="main-menu">
             <ul>
@@ -28,7 +38,7 @@
                 <li><a href="index.html#footer" class="menu-link">Контакты</a></li>
             </ul>
         </nav>
-        
+
         <div class="social-icons">
             <a href="#" button id="searchBtn"></button><img src="../images/searchh.png" alt="Search"></a>
             <a href="#"><img src="../images/ttt.png" alt="TikTok"></a>
@@ -36,6 +46,25 @@
             <a href="#"><img src="../images/tg_negate.png" alt="Telegram"></a>
         </div>
         
+        <nav class="mobile-menu">
+            <div class="dropdown-mobile-menu">
+                <li><a href="#">Каталог</a></li>
+                <div class="dropdown-mobile-menu-content">
+                    <a href="catalog-holders.html">Держатели и разделители</a>
+                    <a href="catalog-cards.html">Открытки</a>
+                    <a href="catalog-bookmarks.html">Закладки</a>
+                    <a href="catalog-figures.html">Фигурки</a>
+                    <a href="catalog-giftsets.html">Подарочные наборы</a>
+                    <a href="catalog-knitted.html">Вязаные изделия</a>
+                </div>
+            </div>
+            <ul>
+                <li><a href="delivery.html">Доставка</a></li>
+                    <li><a href="index.html#reviews" class="menu-link">Отзывы</a></li>
+                    <li><a href="index.html#about" class="menu-link">О нас</a></li>
+                    <li><a href="index.html#footer" class="menu-link">Контакты</a></li>
+            </ul>
+        </nav>
     </header>
     <div class="search-popup" id="searchPopup">
         <input type="text" placeholder="Что вы хотите найти?">
@@ -51,46 +80,77 @@
     <section class="features">
         <h2>Наши преимущества</h2>
         <div class="feature-grid">
-            <div class="feature-item">
-                <img src="../images/lorem.avif" alt="Уникальный дизайн">
-                <h3>Уникальный дизайн</h3>
-                <p>Уникальные обложки и внутренняя структура дневников.</p>
-            </div>
-            <div class="feature-item">
-                <img src="../images/lorem.avif" alt="Качество">
-                <h3>Качество</h3>
-                <p>Печать на плотной бумаге с покрытием Soft-touch.</p>
-            </div>
-            <div class="feature-item">
-                <img src="../images/lorem.avif" alt="Быстрая отправка">
-                <h3>Быстрая отправка</h3>
-                <p>Каждый заказ отправляется в течение 3-5 рабочих дней.</p>
-            </div>
-            <div class="feature-item">
-                <img src="../images/lorem.avif" alt="Доступная цена">
-                <h3>Доступная цена</h3>
-                <p>Высококачественная продукция по приятной цене.</p>
-            </div>
-            <div class="feature-item">
-                <img src="../images/lorem.avif" alt="Более 3000 довольных клиентов">
-                <h3>Более 3000 довольных клиентов</h3>
-                <p>Клиенты оставляют много отзывов о нашей продукции.</p>
-            </div>
-        </div>
+            <ul class="ul-feature">
+              <li>
+                <div class="feature-item">
+                  <img src="../images/lorem.avif" alt="Уникальный дизайн">
+                  <div class="feature-text">
+                    <h3>Уникальный дизайн</h3>
+                    <p>Уникальные обложки и внутренняя структура дневников. Наглядная система отслеживания прочитанных книг и просмотренных фильмов.</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="feature-item">
+                  <img src="../images/lorem.avif" alt="Качество">
+                  <div class="feature-text">
+                    <h3>Качество</h3>
+                    <p>Печать внутреннего блока осуществляется на плотной бумаге, которой не страшны гелевые ручки и фломастеры. Обложка с покрытием Soft-touch приятна на ощупь.</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="feature-item">
+                  <img src="../images/lorem.avif" alt="Доступная цена">
+                  <div class="feature-text">
+                    <h3>Доступная цена</h3>
+                    <p>Приятная цена для продукции высокого качества.</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="feature-item">
+                  <img src="../images/lorem.avif" alt="Быстрая отправка">
+                  <div class="feature-text">
+                    <h3>Быстрая отправка</h3>
+                    <p>Каждый заказ собирается и отправляется к вам в течение 3-5 рабочих дней.</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="feature-item">
+                  <img src="../images/lorem.avif" alt="Регулярные акции">
+                  <div class="feature-text">
+                    <h3>Регулярные сезонные акции и скидки</h3>
+                    <p>Мы любим баловать наших покупателей, поэтому периодически запускаем три дня скидок.</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="feature-item">
+                  <img src="../images/lorem.avif" alt="3000 довольных клиентов">
+                  <div class="feature-text">
+                    <h3>Более 3000 довольных клиентов</h3>
+                    <p>Не верьте - проверьте. Клиенты оставляют много отзывов, которыми мы с вами делимся на сайте, в ВКонтакте и Телеграм.</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
     </section>
     <section class="catalog">
         <h3>Каталог</h3>
         <div class="catalog-grid">
-            <div class="catalog-item" style="background-image: url('path/to/category-image1.jpg');">
+            <div class="catalog-item" style="background-image: url('../images/111.jpg');">
                 <a href="#">Дневники для чтения</a>
             </div>
-            <div class="catalog-item" style="background-image: url('path/to/category-image2.jpg');">
+            <div class="catalog-item" style="background-image: url('../images/222.jpeg');">
                 <a href="#">Дневники для фильмов</a>
             </div>
-            <div class="catalog-item" style="background-image: url('path/to/category-image3.jpg');">
+            <div class="catalog-item" style="background-image: url('../images/333.webp');">
                 <a href="#">Ежедневники</a>
             </div>
-            <div class="catalog-item" style="background-image: url('path/to/category-image4.jpg');">
+            <div class="catalog-item" style="background-image: url('../images/444.webp');">
                 <a href="#">Планировщики</a>
             </div>
             <!-- Add more catalog items as needed -->

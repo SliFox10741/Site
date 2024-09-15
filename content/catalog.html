@@ -15,6 +15,16 @@
 
 <body>
     <header>
+
+        <div class="hamburger-menu">
+            <button id="hamburger-btn" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+
+
         <div class="logo"><a href="index.html">Сокровищница дракона</a></div>
         <nav class="main-menu">
             <ul>
@@ -44,9 +54,9 @@
         </div>
         
         <nav class="mobile-menu">
-            <div class="dropdown">
+            <div class="dropdown-mobile-menu">
                 <li><a href="#">Каталог</a></li>
-                <div class="dropdown-content">
+                <div class="dropdown-mobile-menu-content">
                     <a href="catalog-holders.html">Держатели и разделители</a>
                     <a href="catalog-cards.html">Открытки</a>
                     <a href="catalog-bookmarks.html">Закладки</a>
@@ -56,7 +66,6 @@
                 </div>
             </div>
             <ul>
-                <li><a href="#">Home</a></li>
                 <li><a href="delivery.html">Доставка</a></li>
                     <li><a href="index.html#reviews" class="menu-link">Отзывы</a></li>
                     <li><a href="index.html#about" class="menu-link">О нас</a></li>
@@ -86,12 +95,12 @@
 
 
         <button class="cart_button" id="cart_button">
-            <img class="cart_button__image" src="../images/cart.png" alt="Cart" />
+            <img class="cart_button__image" src="../images/cart2.png" alt="Cart" />
             <div class="cart_button__num" id="cart_button_num">0</div>
         </button>
 
         <section class="catalog-section">
-            <aside class="filters">
+            <!-- <aside class="filters">
                 <h3>Фильтры</h3>
                 <form>
                     <div class="filter-group">
@@ -114,7 +123,7 @@
 
                     <button type="submit" class="filter-button">Применить фильтры</button>
                 </form>
-            </aside>
+            </aside> -->
 
             <section class="catalog-items">
                 <h2>Каталог товаров</h2>

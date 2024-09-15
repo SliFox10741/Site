@@ -9,6 +9,16 @@
 </head>
 <body>
     <header>
+
+        <div class="hamburger-menu">
+            <button id="hamburger-btn" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+
+
         <div class="logo"><a href="index.html">Сокровищница дракона</a></div>
         <nav class="main-menu">
             <ul>
@@ -24,12 +34,12 @@
                     </div>
                 </div>
                 <li><a href="delivery.html">Доставка</a></li>
-                <li><a href="index.html" class="menu-link">Отзывы</a></li>
+                <li><a href="index.html#reviews" class="menu-link">Отзывы</a></li>
                 <li><a href="index.html#about" class="menu-link">О нас</a></li>
                 <li><a href="index.html#footer" class="menu-link">Контакты</a></li>
             </ul>
         </nav>
-        
+
         <div class="social-icons">
             <a href="#" button id="searchBtn"></button><img src="../images/searchh.png" alt="Search"></a>
             <a href="#"><img src="../images/ttt.png" alt="TikTok"></a>
@@ -37,6 +47,25 @@
             <a href="#"><img src="../images/tg_negate.png" alt="Telegram"></a>
         </div>
         
+        <nav class="mobile-menu">
+            <div class="dropdown-mobile-menu">
+                <li><a href="#">Каталог</a></li>
+                <div class="dropdown-mobile-menu-content">
+                    <a href="catalog-holders.html">Держатели и разделители</a>
+                    <a href="catalog-cards.html">Открытки</a>
+                    <a href="catalog-bookmarks.html">Закладки</a>
+                    <a href="catalog-figures.html">Фигурки</a>
+                    <a href="catalog-giftsets.html">Подарочные наборы</a>
+                    <a href="catalog-knitted.html">Вязаные изделия</a>
+                </div>
+            </div>
+            <ul>
+                <li><a href="delivery.html">Доставка</a></li>
+                    <li><a href="index.html#reviews" class="menu-link">Отзывы</a></li>
+                    <li><a href="index.html#about" class="menu-link">О нас</a></li>
+                    <li><a href="index.html#footer" class="menu-link">Контакты</a></li>
+            </ul>
+        </nav>
     </header>
     <div class="search-popup" id="searchPopup">
         <input type="text" placeholder="Что вы хотите найти?">
