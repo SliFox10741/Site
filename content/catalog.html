@@ -47,35 +47,21 @@
 
 
     <main>
-        <!-- HTML разметка -->
-        <div class="basket" id="cart">
-            <div class="basket__container" id="basket_container">
-                <div class="basket__item">
-                    <h1 class="basket__title">Оформление заказа</h1>
-                </div>
-                <div class="basket__item" id="basket_product_list">
-                    <script type="text/template" id="cart_template">
-                        <% _.each(goods, function(item) { %>
-                            <div class="js-cart-item" data-id="<%= item.id %>">
-                                <span class="js-count"><%= item.count %></span> x 
-                                <span><%= item.name %></span>
-                                <span class="js-summa"><%= item.count * item.price %> руб.</span>
-                                <button class="js-change-count" data-id="<%= item.id %>" data-delta="1">+</button>
-                                <button class="js-change-count" data-id="<%= item.id %>" data-delta="-1">-</button>
-                                <button class="js-remove-from-cart" data-id="<%= item.id %>">Удалить</button>
-                            </div>
-                        <% }); %>
-                    </script>
-                </div>
-                <div class="basket__item">
-                    <div class="basket__cost">
-                        <h2 class="basket__cost-title">Итого</h2>
-                        <output class="basket__cost-value" id="total-cart-summa">0</output> руб.
-                    </div>
-                </div>
-                <button class="basket__close" id="basket_close">✖</button>
+
+        <!-- Затемнение (overlay) -->
+        <div id="cartOverlay" class="cart-overlay"></div>
+
+        <!-- Корзина -->
+        <div id="cartModal" class="cart-modal">
+            <!-- Содержимое корзины -->
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <h3>Итого:</h3>
+                <p id="cartTotal">0 руб.</p>
             </div>
+            <button id="closeCart">Закрыть</button>
         </div>
+
 
         <button class="cart_button" id="cart_button">
             <img class="cart_button__image" src="../images/cart.png" alt="Cart" />
@@ -151,8 +137,8 @@
 
 
     <script src="../scripts/catalog.js"></script>
-    <script src="../scripts/script.js"></script> 
-    <script src="../scripts/cart.js"></script>   
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/cart.js"></script>
 
     <script>
         $(document).ready(function () {

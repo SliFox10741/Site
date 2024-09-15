@@ -81,15 +81,14 @@ function loadProductDetails(productId) {
                 const productName = popup.querySelector('h2').textContent;
                 const productPrice = parseFloat(popup.querySelector('p:nth-of-type(2)').textContent.replace('Цена: ', '').replace(' руб.', ''));
 
-                cart.add({
+                Cart.addToCart({
                     id: parseInt(productId),
                     name: productName,
                     price: productPrice,
                     count: 1
                 });
-                cart.renderMenuCart();
-                alert('Товар добавлен в корзину');
-                popup.remove();
+                        alert('Товар добавлен в корзину');
+                    popup.remove();
             });
         })
         

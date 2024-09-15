@@ -43,3 +43,37 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+        <!-- HTML разметка -->
+        <div class="basket" id="cart">
+            <div class="basket__container" id="basket_container">
+                <div class="basket__item">
+                    <h1 class="basket__title">Оформление заказа</h1>
+                </div>
+                <div class="basket__item" id="basket_product_list">
+                    <script type="text/template" id="cart_template">
+                        <% _.each(goods, function(item) { %>
+                            <div class="js-cart-item" data-id="<%= item.id %>">
+                                <span class="js-count"><%= item.count %></span> x 
+                                <span><%= item.name %></span>
+                                <span class="js-summa"><%= item.count * item.price %> руб.</span>
+                                <button class="js-change-count" data-id="<%= item.id %>" data-delta="1">+</button>
+                                <button class="js-change-count" data-id="<%= item.id %>" data-delta="-1">-</button>
+                                <button class="js-remove-from-cart" data-id="<%= item.id %>">Удалить</button>
+                            </div>
+                        <% }); %>
+                    </script>
+                </div>
+                <div class="basket__item">
+                    <div class="basket__cost">
+                        <h2 class="basket__cost-title">Итого</h2>
+                        <output class="basket__cost-value" id="total-cart-summa">0</output> руб.
+                    </div>
+                </div>
+                <button class="basket__close" id="basket_close">✖</button>
+            </div>
+        </div>
