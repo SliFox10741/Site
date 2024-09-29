@@ -51,7 +51,7 @@
 .catalog-items {
     flex: 1;                  /* Каталог товаров занимает оставшееся пространство */
     background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
+    margin-top: 70px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -298,7 +298,7 @@
 }
 
 .cart_button {
-    display: inline-block;
+    display: none;
     cursor: pointer;
     padding: 10px;
 }
@@ -609,5 +609,8 @@
 
 .space-for-popup-products {
     width: 20%;
-}
+}   
 
+.hidden {
+    display: none; /* Скрывает кнопку */
+}

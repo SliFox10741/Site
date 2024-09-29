@@ -12,6 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         cartButtonNum.innerText = totalItems;
+
+        // Проверка, есть ли товары в корзине
+        if (totalItems > 0) {
+            cartButton.style.display = 'inline-block';
+            // cartButton.classList.remove('hidden'); // Показываем кнопку
+        } else {
+            cartButton.style.display = 'none';
+            // cartButton.classList.add('hidden'); // Скрываем кнопку
+        }
     }
 
     // Открытие корзины и overlay

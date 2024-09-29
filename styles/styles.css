@@ -1,36 +1,56 @@
 /* Общие стили */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffeaf2; /* Мягкий пастельный розовый фон */
+    background-color: #ffeaf2;
+    /* Мягкий пастельный розовый фон */
 }
+
 section {
-    min-height: 100vh; /* Задаем минимум 100% от высоты окна браузера */
-    display: flex; /* Flexbox для центровки содержимого */
+    min-height: 100vh;
+    /* Задаем минимум 100% от высоты окна браузера */
+    display: flex;
+    /* Flexbox для центровки содержимого */
     flex-direction: column;
-    justify-content: center; /* Центрируем содержимое по вертикали */
-    align-items: center; /* Центрируем содержимое по горизонтали */
+    justify-content: center;
+    /* Центрируем содержимое по вертикали */
+    align-items: center;
+    /* Центрируем содержимое по горизонтали */
 }
+
 a {
     text-decoration: none;
     color: #333;
 }
 
+p {
+    font-size: clamp(16px, 2vw, 25px);
+}
+
 header {
-    height: 60px; /* Задаем высоту шапки, чтобы её легко учитывать */
-    background-color: rgba(0, 0, 0, 0.6); /* Темный фон для шапки */
-    padding: 15px;
+    height: 60px;
+    /* Задаем высоту шапки, чтобы её легко учитывать */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Темный фон для шапки */
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
 }
 
 .logo a {
     font-size: 24px;
     font-weight: bold;
-    color: #fff; /* Белый текст */
+    color: #fff;
+    /* Белый текст */
     font-family: "Comic Sans MS";
 }
 
@@ -45,7 +65,8 @@ header {
 }
 
 .main-menu ul li a {
-    color: #fff; /* Белый текст */
+    color: #fff;
+    /* Белый текст */
     font-size: 16px;
     padding: 5px 10px;
     text-transform: uppercase;
@@ -55,6 +76,7 @@ header {
     position: relative;
     display: inline-block;
 }
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -62,10 +84,13 @@ header {
     min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
     z-index: 1;
-    left: 50%; /* Центрируем меню */
-    transform: translateX(-50%); /* Компенсируем смещение на 50% для точного центрирования */
-    transition: opacity 0.3s ease; /* Плавное появление и исчезновение */
-    
+    left: 50%;
+    /* Центрируем меню */
+    transform: translateX(-50%);
+    /* Компенсируем смещение на 50% для точного центрирования */
+    transition: opacity 0.3s ease;
+    /* Плавное появление и исчезновение */
+
 }
 
 .dropdown-content a {
@@ -80,7 +105,8 @@ header {
 }
 
 .dropdown-content a:hover {
-    background-color: #f8b8d0; /* Подсветка элементов при наведении */
+    background-color: #f8b8d0;
+    /* Подсветка элементов при наведении */
 }
 
 .social-icons {
@@ -105,30 +131,30 @@ header {
 
 /* Hero Section */
 .hero {
-    min-height: calc(100vh - 60px); /* Вычитаем высоту шапки */
+    min-height: calc(100vh - 60px);
+    /* Вычитаем высоту шапки */
     background-image: url('../images/hero-background.jpg');
     background-size: cover;
     background-position: center;
     text-align: center;
     color: white;
     position: relative;
+    z-index: 1;
 }
 
 .hero h2 {
     font-size: 48px;
     margin-bottom: 20px;
-    font-family: cursive;
+    
     text-shadow: 2px 2px 2px black;
     color: #fff;
 }
 
 .hero p {
-    font-size: 18px;
+    /* font-size: 18px; */
     margin-bottom: 30px;
-    font-family: cursive;
     text-shadow: 2px 2px 2px black;
-color: #fff;
-    
+    color: #fff;
 }
 
 .hero .cta-button a {
@@ -138,25 +164,28 @@ color: #fff;
     font-size: 18px;
     border-radius: 20px;
     transition: background-color 0.3s;
-    font-family: cursive;
+    
 }
 
 .hero .cta-button a:hover {
     background-color: #e1a5bc;
-    font-family: cursive;
+    
 }
 
 /* Features Section */
 .features {
     padding: 50px 20px;
-    background-color: #fff2e2; /* Светло-персиковый фон */
+    background-color: #fff2e2;
+    /* Светло-персиковый фон */
     text-align: center;
 }
+
 .features h2 {
     margin-bottom: 30px;
     font-size: 36px;
     color: #5f6997;
 }
+
 .feature-grid {
     display: flex;
     flex-wrap: wrap;
@@ -180,6 +209,7 @@ color: #fff;
     margin-bottom: 10px;
     color: #5f6997;
 }
+
 .feature-item p {
     font-size: 14px;
     color: #333;
@@ -188,27 +218,21 @@ color: #fff;
 
 
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f3d4;
-    color: #5b3a29;
-  }
-  
-  .feature-grid {
+.feature-grid {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  .ul-feature {
+}
+
+.ul-feature {
     list-style: none;
     padding: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-  }
-  
-  .feature-item {
+}
+
+.feature-item {
     display: flex;
     align-items: center;
     background-color: #fff8e8;
@@ -216,51 +240,51 @@ body {
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-  }
-  
-  .feature-item:hover {
+}
+
+.feature-item:hover {
     transform: translateY(-5px);
-  }
-  
-  .feature-item img {
+}
+
+.feature-item img {
     max-width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 20px;
-  }
-  
-  .feature-text {
+}
+
+.feature-text {
     display: flex;
     flex-direction: column;
-  }
-  
-  .feature-item h3 {
+}
+
+.feature-item h3 {
     font-size: 1.4rem;
     margin-bottom: 10px;
     color: #5b3a29;
-  }
-  
-  .feature-item p {
+}
+
+.feature-item p {
     font-size: 1rem;
     color: #5b3a29;
     margin: 0;
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .ul-feature {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
-    
+
     .feature-item {
-      flex-direction: column;
-      text-align: center;
+        flex-direction: column;
+        text-align: center;
     }
-    
+
     .feature-item img {
-      margin-right: 0;
-      margin-bottom: 15px;
+        margin-right: 0;
+        margin-bottom: 15px;
     }
-  }
+}
 
 
 
@@ -268,7 +292,8 @@ body {
 /* Catalog Section */
 .catalog {
     padding: 50px 20px;
-    background-color: #ffeaf2; /* Мягкий розовый фон */
+    background-color: #ffeaf2;
+    /* Мягкий розовый фон */
 }
 
 .catalog h3 {
@@ -288,13 +313,18 @@ body {
 .catalog-item {
     background-size: cover;
     background-position: center;
-    width: 200px;
-    height: 300px;
+   
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     border-radius: 10px;
+
+    max-width: 500px;
+    width: 20vw;
+    min-height: 300px;
+    max-height: 600px;
+    height: 24vw;
 }
 
 .catalog-item a {
@@ -361,12 +391,14 @@ body {
     background-color: #fff2e2;
     padding: 20px;
     border-radius: 10px;
-    width: 300px;
+    min-width: 300px;
+    width: 30vw;
+    max-width: 800px;
     text-align: center;
 }
 
 .review-text {
-    font-size: 16px;
+    /* font-size: 16px; */
     margin-bottom: 10px;
 }
 
@@ -461,22 +493,30 @@ footer {
 
 @media (max-width: 950px) {
     .main-menu {
-        display: none; /* Обычное меню скрыто на мобильных устройствах */
+        display: none;
+        /* Обычное меню скрыто на мобильных устройствах */
     }
+
     .hamburger {
-        display: flex; /* Показываем иконку гамбургера */
+        display: flex;
+        /* Показываем иконку гамбургера */
     }
+
     .hamburger.active span:nth-child(1) {
         transform: rotate(45deg) translateY(8px);
     }
+
     .hamburger.active span:nth-child(2) {
         opacity: 0;
     }
+
     .hamburger.active span:nth-child(3) {
         transform: rotate(-45deg) translateY(-8px);
     }
+
     .mobile-menu.active {
-        display: block; /* Показываем мобильное меню, когда гамбургер активен */
+        display: block;
+        /* Показываем мобильное меню, когда гамбургер активен */
     }
 }
 
@@ -496,7 +536,8 @@ footer {
     }
 
     .feature-grid {
-        flex-direction: column; /* Фичи в одну колонку на малых экранах */
+        flex-direction: column;
+        /* Фичи в одну колонку на малых экранах */
         gap: 20px;
     }
 
@@ -521,7 +562,7 @@ footer {
 
     .footer-container {
         flex-direction: column;
-        align-items: center;
+        align-items: left;
     }
 }
 
@@ -539,19 +580,18 @@ footer {
         font-size: 24px;
     }
 }
+
 /* Для мобильных устройств или если ширина экрана меньше 768px */
 @media (max-width: 768px) {
     .social-icons {
-        display: none; /* Скрываем иконки */
+        display: none;
+        /* Скрываем иконки */
     }
+
     .logo {
         margin: auto;
     }
 }
-
-
-
-
 
 
 
@@ -617,11 +657,11 @@ footer {
 }
 
 /* Скрыть основное меню на мобильных устройствах */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
     .main-menu {
         display: none;
     }
-    
+
     .hamburger-menu {
         display: block;
     }
@@ -629,12 +669,13 @@ footer {
     .mobile-menu {
         display: none;
         position: absolute;
-        top: 60px; /* Позиция от верхнего края */
+        top: 60px;
+        /* Позиция от верхнего края */
         right: 0;
         background-color: #fff;
         border: 1px solid #ddd;
         width: 100%;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     .mobile-menu ul {
@@ -657,7 +698,7 @@ footer {
     .mobile-menu ul li a:hover {
         background-color: #f5f5f5;
     }
-    
+
     /* Показываем мобильное меню при активации */
     .mobile-menu-active {
         display: block;

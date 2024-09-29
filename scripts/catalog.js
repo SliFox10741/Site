@@ -1,6 +1,6 @@
 // Функция для загрузки товаров
 function loadProducts(limit, offset, category = '') {
-    let url = `http://localhost:3000/products?limit=${limit}&offset=${offset}`;
+    let url = `http://192.168.0.36:3000/products?limit=${limit}&offset=${offset}`;
     if (category) {
         url += `&category=${category}`;
     }
@@ -43,7 +43,7 @@ function loadProductDetails(productId) {
         console.error('Invalid product ID:', productId);
         return;
     }
-    const url = `http://localhost:3000/products/${productId}`; 
+    const url = `http://192.168.0.36:3000/products/${productId}`; 
 
     fetch(url)
         .then(response => {

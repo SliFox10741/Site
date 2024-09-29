@@ -1,0 +1,30 @@
+@font-face {
+	font-family: 'Caveat'; 
+	src: local('Caveat'),
+		url(../fonts/Caveat/static/Caveat-Medium.ttf);
+         
+}
+@font-face {
+	font-family: 'Caveat-Bold'; 
+	src: local('Caveat-Bold'),
+		url(../fonts/Caveat/static/Caveat-Bold.ttf);
+         
+}
+@font-face {
+	font-family: 'Caveat-Regular'; 
+	src: local('Caveat-Regular'),
+		url(../fonts/Caveat/static/Caveat-Regular.ttf);
+         
+}
+@font-face {
+	font-family: 'Caveat-SemiBold'; 
+	src: local('Caveat-SemiBold'),
+		url(../fonts/Caveat/static/Caveat-SemiBold.ttf);
+         
+}
+
+@font-face {
+	font-family: 'Comfortaa'; 
+	src: local('Comfortaa'),
+		url(../fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf); 
+}
