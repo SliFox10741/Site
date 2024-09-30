@@ -1,3 +1,208 @@
+.cart_button {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: 0.1s;
+  cursor: pointer;
+  position: fixed; /* Фиксированное расположение */
+  top: 100px; /* в правом верхнем углу */
+  right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  padding: 15px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* Увеличиваем кнопку при наведении на нее */
+.cart_button:hover {
+  transform: scale(1.1);
+}
+
+.cart_button img {
+  width: 50px;
+  height: 50px;
+
+}
+/* Стилизуем счетчик товаров */
+.cart_button__num {
+  position: absolute;
+  background-color: #d62240;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  top: -5px;
+  right: -5px;
+}
+
+
+
+
+.cart-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.cart-items {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-item span {
+  margin: 0 10px;
+}
+
+.cart-total {
+  text-align: right;
+}
+
+.basket__close {
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-controls button {
+  cursor: pointer;
+  padding: 5px;
+  background-color: #ddd;
+  border: none;
+  margin: 0 5px;
+}
+
+.cart_button {
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.cart_button__image {
+  width: 50px;
+}
+
+.cart_button__num {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-details, .btn-add {
+  display: inline-block;
+  background-color: #8d6e63; /* Brown color for buttons */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.btn-details:hover, .btn-add:hover {
+  background-color: #795548;
+}
+
+.btn-add {
+  background-color: #5d4037;
+}
+
+.btn-add:hover {
+  background-color: #3e2723;
+}
+
+
+@media (max-width: 768px) {
+  .cart_button {
+      width: 60px;                    /* Уменьшаем размер кнопки корзины */
+      height: 60px;
+      top: 80px;                      /* Корректируем позицию кнопки корзины */
+      right: 30px;
+  }
+
+  .cart_button img {
+      width: 40px;                    /* Корректируем размер изображения в кнопке корзины */
+      height: 40px;
+  }
+
+  .popup-content {
+      max-width: 90%;                 /* Сужаем pop-up окно на экранах планшетов */
+      margin: 20px;                   /* Отступы для мобильного окна */
+  }
+}
+
+@media (max-width: 480px) {
+  .cart_button {
+      width: 50px;                    /* Еще больше уменьшаем кнопку корзины */
+      height: 50px;
+      top: 60px;
+      right: 20px;
+  }
+
+  .cart_button img {
+      width: 30px;
+      height: 30px;
+  }
+
+  .popup-content {
+      max-width: 95%;                 /* Pop-up окно с отступами для узких экранов */
+      padding: 10px;                  /* Уменьшаем внутренние отступы pop-up */
+  }
+
+  .cart-content {
+      width: 90%;                     /* Ширина корзины адаптируется под экран */
+  }
+}
+
+
+
+
 .basket { 
   position: fixed;
   top: 0;

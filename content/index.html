@@ -101,21 +101,20 @@
 
 <!-- Раздел "Отзывы" -->
 <section class="reviews" id="reviews">
-    <h3>Отзывы</h3>
-    <div class="reviews-grid">
-        <!-- Пример одного отзыва -->
-        <div class="review-item">
-            <p class="review-text">"Это лучший сайт, который я когда-либо посещал!"</p>
-            <p class="review-author">- Имя Отзывователя</p>
-        </div>
-        <!-- Добавьте еще отзывы здесь -->
-        <div class="review-item">
-          <p class="review-text">"Это лучший сайт, который я когда-либо посещал!"</p>
-          <p class="review-author">- Имя Отзывователя</p>
-      </div>
-      <div class="review-item">
-        <p class="review-text">"Это лучший сайт, который я когда-либо посещал!"</p>
-        <p class="review-author">- Имя Отзывователя</p>
+  <h3>Отзывы</h3>
+  <div class="slideshow-container" id="slideshow">
+    <div class="slide active">
+      <img src="/images/review1.jpeg" alt="Отзыв 1">
     </div>
+    <div class="slide">
+      <img src="/images/review2.jpg" alt="Отзыв 2">
     </div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/800x400?text=Отзыв+3" alt="Отзыв 3">
+    </div>
+
+    <!-- Стрелки для управления слайд-шоу -->
+    <a class="prev arrow" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next arrow" onclick="plusSlides(1)">&#10095;</a>
+  </div>
 </section>

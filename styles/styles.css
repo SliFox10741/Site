@@ -415,6 +415,10 @@ footer {
     opacity: 0.6;
 }
 
+footer p {
+    font-size: clamp(10px, 1.5vw, 16px); 
+}
+
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -557,12 +561,14 @@ footer {
 
     footer {
         flex-direction: column;
-        text-align: center;
+        text-align: start;
     }
+    
+    
 
     .footer-container {
         flex-direction: column;
-        align-items: left;
+        align-content: start;
     }
 }
 

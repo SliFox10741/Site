@@ -1,0 +1,150 @@
+.slideshow-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slide {
+    display: none;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.active {
+    display: block;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: rgb(97, 97, 97);
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.prev::after {
+    content: '❮';
+}
+
+.next::after {
+    content: '❯';
+}
+
+.arrow {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.slideshow-container:hover .arrow {
+    opacity: 0.8;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 600px) {
+    .slideshow-container {
+        width: 95%;
+    }
+
+    .prev, .next {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .slide img {
+        border-radius: 8px;
+    }
+
+    .prev::after {
+        content: '❮';
+        font-size: 24px;
+    }
+
+    .next::after {
+        content: '❯';
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 400px) {
+    .prev, .next {
+        padding: 8px;
+    }
+
+    .prev::after {
+        font-size: 20px;
+    }
+
+    .next::after {
+        font-size: 20px;
+    }
+}
+
+
+.slideshow-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .slide {
+    display: none;
+  }
+  
+  .slide.active {
+    display: block;
+  }
+  
+  .arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  .prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .next {
+    right: 0;
+    border-radius: 0 3px 3px 0;
+  }
+  
+  .arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+
+  
