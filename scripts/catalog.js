@@ -1,6 +1,6 @@
 // Функция для загрузки товаров
 function loadProducts(limit, offset, category = '') {
-    let url = `http://192.168.0.36:3000/products?limit=${limit}&offset=${offset}`;
+    let url = `http://172.30.48.1:3000/products?limit=${limit}&offset=${offset}`;
     if (category) {
         url += `&category=${category}`;
     }
@@ -13,12 +13,14 @@ function loadProducts(limit, offset, category = '') {
 
             products.forEach(product => {
                 const productItem = `
-                    <div class="product-item" data-product-id="${product.id}">
-                        <img src="../images/${product.photo_url}" alt="${product.name}" width="200" />
-                        <h2>${product.name}</h2>
+                    <div class="product-item">
+                        <div class="product-item-description"  data-product-id="${product.id}">
+                            <img src="../images/${product.photo_url}" alt="${product.name}" width="200" />
+                            <h2>${product.name}</h2>
 
-                        <p>${product.description}</p>
-                        <p>Цена: ${product.price} руб.</p>
+                            <p>${product.description}</p>
+                            <p>Цена: ${product.price} руб.</p>
+                        </div>
                         <button class="btn-details">Подробнее</button>
                         <button class="btn-add" data-product-id="${product.id}">В корзину</button>
                     </div>
@@ -27,10 +29,21 @@ function loadProducts(limit, offset, category = '') {
             });
 
             // Добавляем обработчики событий на каждый товар
-            document.querySelectorAll('.product-item').forEach(product => {
+            document.querySelectorAll('.product-item-description').forEach(product => {
                 product.addEventListener('click', function() {
                     const productId = this.dataset.productId;
                     loadProductDetails(productId); // Загружаем данные товара по id
+                });
+            });
+            document.querySelectorAll('.btn-details').forEach(product => {
+                product.addEventListener('click', function() {
+                    const productId = this.dataset.productId;
+                    loadProductDetails(productId); // Загружаем данные товара по id
+                });
+            });
+            document.querySelectorAll('.btn-add').forEach(product => {
+                product.addEventListener('click', function() {
+                    //добавление товара в корзину
                 });
             });
         })
@@ -43,7 +56,7 @@ function loadProductDetails(productId) {
         console.error('Invalid product ID:', productId);
         return;
     }
-    const url = `http://192.168.0.36:3000/products/${productId}`; 
+    const url = `http://172.30.48.1:3000/products/${productId}`; 
 
     fetch(url)
         .then(response => {

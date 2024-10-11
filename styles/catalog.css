@@ -75,13 +75,6 @@
     text-align: center;
 }
 
-.product-item img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 10px;
-}
-
 .product-item h4 {
     font-size: 18px;
     margin-bottom: 10px;

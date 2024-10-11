@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить товар</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: 0 auto;
+        }
+        input, select, textarea {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Добавить новый товар</h2>
+    <form id="add-product-form" enctype="multipart/form-data">
+        <label for="name">Название:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="description">Описание:</label>
+        <textarea id="description" name="description"></textarea>
+
+        <label for="price">Цена (в рублях):</label>
+        <input type="number" id="price" name="price" required step="0.01">
+
+        <label for="weight">Вес (в граммах):</label>
+        <input type="number" id="weight" name="weight" required step="0.01">
+
+        <label for="tag">Тэги:</label>
+        <input type="text" id="tag" name="tag">
+
+        <label for="material">Материал:</label>
+        <input type="text" id="material" name="material">
+
+        <label for="category">Категория:</label>
+        <select id="category" name="category">
+            <option value="" disabled selected>Выберите категорию</option>
+            <!-- Здесь будут категории -->
+        </select>
+        <label>
+            <input type="checkbox" id="new-category-check"> Создать новую категорию
+        </label>
+        <input type="text" id="new-category" name="new_category" style="display: none;" placeholder="Введите новую категорию">
+
+        <label for="photo">Фото товара:</label>
+        <input type="file" id="photo" name="photo" accept=".jpeg,.png,.jpg" required>
+
+        <button type="submit">Добавить товар</button>
+    </form>
+
+    <script>
+        const newCategoryCheck = document.getElementById('new-category-check');
+        const newCategoryInput = document.getElementById('new-category');
+
+        // Показывать/скрывать поле для ввода новой категории
+        newCategoryCheck.addEventListener('change', function() {
+            newCategoryInput.style.display = this.checked ? 'block' : 'none';
+        });
+
+        // Обработка отправки формы
+        const form = document.getElementById('add-product-form');
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(form);
+            
+            const response = await fetch('http://localhost:3000/add-product', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                alert('Товар добавлен успешно!');
+            } else {
+                alert('Произошла ошибка: ' + result.message);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -21,6 +21,9 @@ include "content/index.html";
 include "content/footer.html";
 
 echo '
+
+<a href="content/admin.html">qweqweqweqweqw</a>
+
 <script src="/scripts/review.js"></script>
     <script src="/scripts/cart.js"></script>
     <script src="/scripts/script.js"></script>
