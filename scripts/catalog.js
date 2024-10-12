@@ -1,6 +1,6 @@
 // Функция для загрузки товаров
 function loadProducts(limit, offset, category = '') {
-    let url = `http://172.30.48.1:3000/products?limit=${limit}&offset=${offset}`;
+    let url = `http://localhost:3000/products?limit=${limit}&offset=${offset}`;
     if (category) {
         url += `&category=${category}`;
     }
@@ -12,10 +12,13 @@ function loadProducts(limit, offset, category = '') {
             productList.innerHTML = '';
 
             products.forEach(product => {
+                // Путь к первой фотографии (если она есть)
+                const photoUrl = product.photos.length > 0 ? product.photos[0] : 'default-image.jpg'; // 'default-image.jpg' на случай, если нет фото
+                
                 const productItem = `
                     <div class="product-item">
                         <div class="product-item-description"  data-product-id="${product.id}">
-                            <img src="../images/${product.photo_url}" alt="${product.name}" width="200" />
+                            <img src="/images/${photoUrl}" alt="${product.name}" width="200" />
                             <h2>${product.name}</h2>
 
                             <p>${product.description}</p>
@@ -43,20 +46,19 @@ function loadProducts(limit, offset, category = '') {
             });
             document.querySelectorAll('.btn-add').forEach(product => {
                 product.addEventListener('click', function() {
-                    //добавление товара в корзину
+                    // добавление товара в корзину
                 });
             });
         })
         .catch(error => console.error('Error loading products:', error));
 }
-
 // Функция для загрузки деталей товара и отображения popup
 function loadProductDetails(productId) {
     if (!productId || isNaN(productId)) {
         console.error('Invalid product ID:', productId);
         return;
     }
-    const url = `http://172.30.48.1:3000/products/${productId}`; 
+    const url = `http://localhost:3000/products/${productId}`; 
 
     fetch(url)
         .then(response => {
@@ -70,6 +72,9 @@ function loadProductDetails(productId) {
             const oldPopup = document.getElementById('product-popup');
             if (oldPopup) oldPopup.remove();
 
+            // Путь к первой фотографии (если есть)
+            const photoUrl = product.photos.length > 0 ? product.photos[0] : 'default-image.jpg';
+
             const popupContent = `
                 <div id="product-popup" class="popup">
                     <div class="popup-content">
@@ -77,13 +82,13 @@ function loadProductDetails(productId) {
                         <div class="product-details">
                             <div class="space-for-popup-products"></div>
                         
-                            <img src="../images/${product.photo_url}" alt="${product.name}" class="product-image" />
+                            <img src="/images/${photoUrl}" alt="${product.name}" class="product-image" />
                             
                             <div class="product-info">
                                 <h2>${product.name}</h2>
-                                <p>Артикул: ${product.article}</p>
-                                <p>Тэги: ${product.tegs}</p>
-                                <p>Просто какое-то невероятно интересное описание, прочитав которое, пользователь безумно захочет выкупить весь склад :))) </p>
+                                <p>Артикул: ${product.sku}</p>
+                                <p>Тэги: ${product.tag}</p>
+                                <p>Описание: ${product.description}</p>
                                 <p class="product-price">${product.price} руб.</p>
                                 <button id="save-product-btn" class="add-to-cart-btn" data-product-id="${product.id}">
                                     В корзину

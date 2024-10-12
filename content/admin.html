@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +12,15 @@
             width: 300px;
             margin: 0 auto;
         }
-        input, select, textarea {
+
+        input,
+        select,
+        textarea {
             margin-bottom: 10px;
         }
     </style>
 </head>
+
 <body>
     <h2>Добавить новый товар</h2>
     <form id="add-product-form" enctype="multipart/form-data">
@@ -45,7 +50,8 @@
         <label>
             <input type="checkbox" id="new-category-check"> Создать новую категорию
         </label>
-        <input type="text" id="new-category" name="new_category" style="display: none;" placeholder="Введите новую категорию">
+        <input type="text" id="new-category" name="new_category" style="display: none;"
+            placeholder="Введите новую категорию">
 
         <label for="photo">Фото товара:</label>
         <input type="file" id="photo" name="photo" accept=".jpeg,.png,.jpg" required>
@@ -54,33 +60,86 @@
     </form>
 
     <script>
-        const newCategoryCheck = document.getElementById('new-category-check');
-        const newCategoryInput = document.getElementById('new-category');
+        document.addEventListener('DOMContentLoaded', function () {
+            const categorySelect = document.getElementById('category');
+            const newCategoryCheck = document.getElementById('new-category-check');
+            const newCategoryInput = document.getElementById('new-category');
 
-        // Показывать/скрывать поле для ввода новой категории
-        newCategoryCheck.addEventListener('change', function() {
-            newCategoryInput.style.display = this.checked ? 'block' : 'none';
-        });
+            // Функция для загрузки категорий из базы данных
+            function loadCategories() {
+                fetch('http://localhost:3000/categories')
+                    .then(response => response.json())
+                    .then(categories => {
+                        // Очищаем select перед заполнением
+                        categorySelect.innerHTML = '<option value="" disabled selected>Выберите категорию</option>';
 
-        // Обработка отправки формы
-        const form = document.getElementById('add-product-form');
-        form.addEventListener('submit', async function(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(form);
-            
-            const response = await fetch('http://localhost:3000/add-product', {
-                method: 'POST',
-                body: formData
+                        // Заполняем select существующими категориями
+                        categories.forEach(category => {
+                            const option = document.createElement('option');
+                            option.value = category.id;
+                            option.textContent = category.name;
+                            categorySelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Ошибка при загрузке категорий:', error);
+                    });
+            }
+
+            // Загружаем категории при загрузке страницы
+            loadCategories();
+
+            // Обработчик для чекбокса создания новой категории
+            newCategoryCheck.addEventListener('change', function () {
+                if (this.checked) {
+                    // Если выбрана опция создания новой категории, скрываем select с категориями и показываем поле ввода
+                    categorySelect.disabled = true;
+                    newCategoryInput.style.display = 'block';
+                } else {
+                    // Иначе показываем select с категориями и скрываем поле для новой категории
+                    categorySelect.disabled = false;
+                    newCategoryInput.style.display = 'none';
+                }
             });
 
-            const result = await response.json();
-            if (result.success) {
-                alert('Товар добавлен успешно!');
-            } else {
-                alert('Произошла ошибка: ' + result.message);
-            }
+            // Обработчик для формы добавления товара
+            const form = document.getElementById('add-product-form');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const formData = new FormData(form);
+
+                // Если выбрана новая категория, добавляем её в formData
+                if (newCategoryCheck.checked) {
+                    const newCategory = newCategoryInput.value.trim();
+                    if (newCategory) {
+                        formData.append('new_category', newCategory); // Добавляем новую категорию в данные формы
+                    } else {
+                        alert('Пожалуйста, введите название новой категории.');
+                        return;
+                    }
+                }
+
+                fetch('http://localhost:3000/add-products', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Товар успешно добавлен');
+                            form.reset(); 
+                            loadCategories();
+                        } else {
+                            throw new Error('Ошибка при добавлении товара');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Ошибка при добавлении товара:', error);
+                    });
+            });
         });
+
     </script>
 </body>
+
 </html>
